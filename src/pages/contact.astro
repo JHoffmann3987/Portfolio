@@ -3,58 +3,53 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact | Justin Hoffmann">
-  <main class="contact">
+  <section class="contact">
     <h1>Contact</h1>
 
     <p class="intro">
-      Thanks for visiting my portfolio. Feel free to connect with me or reach
-      out if you'd like to discuss IT, systems administration, networking, or
-      collaboration opportunities.
+      Thanks for visiting my portfolio. If you'd like to connect, discuss an
+      opportunity, or talk about technology, I'd be happy to hear from you.
     </p>
 
     <div class="contact-card">
       <h2>Get in Touch</h2>
 
-      <ul>
-        <li>
-          <strong>Email:</strong>
-          <a href="mailto:jhoffmann3987@yahoo.com">jhoffmann3987@yahoo.com</a>
-        </li>
+      <p>
+        <strong>Email</strong><br />
+        <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+      </p>
 
-        <li>
-          <strong>GitHub:</strong>
-          <a href="https://github.com/jhoffmann3987" target="_blank" rel="noopener noreferrer">
-            github.com/jhoffmann3987
-            </a>
-        </li>
-
-
-        <li>
-          <strong>Location:</strong>
-          Pensacola, Florida
-        </li>
-      </ul>
+      <p>
+        <strong>GitHub</strong><br />
+        <a
+          href="https://github.com/jhoffmann3987"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/jhoffmann3987
+        </a>
+      </p>
     </div>
-  </main>
+  </section>
 </Layout>
 
 <style>
 .contact {
-  width: min(900px, 90%);
+  max-width: 800px;
   margin: 80px auto;
+  padding: 2rem;
 }
 
 .contact h1 {
-  text-align: center;
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .intro {
-  text-align: center;
-  color: #cbd5e1;
+  font-size: 1.1rem;
   line-height: 1.8;
-  margin: 2rem auto 3rem;
-  max-width: 700px;
+  color: #cbd5e1;
+  margin-bottom: 2.5rem;
 }
 
 .contact-card {
@@ -66,17 +61,12 @@ import Layout from "../layouts/Layout.astro";
 
 .contact-card h2 {
   margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-.contact-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-card li {
-  margin-bottom: 1.25rem;
-  font-size: 1.1rem;
+.contact-card p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .contact-card a {

@@ -3,138 +3,89 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About | Justin Hoffmann">
-  <section class="container">
+  <section class="about">
     <h1>About Me</h1>
 
     <p>
-      I'm a Systems Administrator with a passion for building reliable,
-      secure, and efficient IT infrastructure. I enjoy solving technical
-      problems, automating repetitive tasks, and continuously learning new
-      technologies through both my professional work and my home lab.
-    </p>
-
-    <h2>Professional Experience</h2>
-
-    <p>
-      I currently work as a Systems Administrator at a Managed Service
-      Provider (MSP), where I support a variety of business environments.
-      My responsibilities include Microsoft 365 administration, Entra ID,
-      Active Directory, endpoint management, cybersecurity, networking,
-      and PowerShell automation.
+      I'm an IT Support Technician working in a Managed Service Provider (MSP)
+      environment, where I help support business clients with Microsoft 365,
+      Windows, endpoint management, identity administration, and day-to-day
+      technical issues.
     </p>
 
     <p>
-      Every day I work with technologies including Microsoft 365,
-      Microsoft Entra ID, Active Directory, PowerShell, NinjaOne,
-      SentinelOne, Huntress, Guardz, Barracuda, and SonicWall to deploy,
-      secure, monitor, and support client environments.
+      Outside of work, I enjoy building and maintaining a home lab where I can
+      gain hands-on experience with technologies used in enterprise
+      environments. My lab allows me to explore virtualization, Linux, Docker,
+      networking, automation, and infrastructure in a practical setting.
     </p>
-
-    <h2>My Home Lab</h2>
 
     <p>
-      Outside of work, I maintain a Proxmox-based home lab where I
-      experiment with virtualization, Docker containers, networking,
-      automation, and self-hosted services. My lab allows me to test new
-      technologies, improve my troubleshooting skills, and build real-world
-      projects that reinforce what I learn professionally.
+      I'm passionate about continuous learning and enjoy taking on projects that
+      challenge me to expand my technical knowledge. Whether I'm configuring a
+      Proxmox server, writing PowerShell scripts, troubleshooting networking
+      issues, or learning new technologies, I believe the best way to grow is by
+      building and solving real-world problems.
     </p>
 
-    <h2>Currently Learning</h2>
-
-    <p>
-      I'm continually expanding my knowledge of networking, Linux,
-      automation, virtualization, and enterprise infrastructure. I'm
-      currently focused on strengthening my networking expertise while
-      continuing to build practical projects that demonstrate real-world
-      problem solving.
-    </p>
-
-    <h2>Technologies I Use</h2>
+    <h2>Technologies I Work With</h2>
 
     <div class="skills">
-      <div>
-        <h3>Microsoft</h3>
-        <ul>
-          <li>Microsoft 365</li>
-          <li>Microsoft Entra ID</li>
-          <li>Active Directory</li>
-          <li>PowerShell</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Endpoint Management</h3>
-        <ul>
-          <li>NinjaOne</li>
-          <li>SentinelOne</li>
-          <li>Huntress</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Security</h3>
-        <ul>
-          <li>Guardz</li>
-          <li>Barracuda</li>
-          <li>SentinelOne</li>
-          <li>Huntress</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Networking</h3>
-        <ul>
-          <li>SonicWall</li>
-          <li>DNS</li>
-          <li>DHCP</li>
-          <li>VPN</li>
-        </ul>
-      </div>
+      <span>Microsoft 365</span>
+      <span>Microsoft Entra ID</span>
+      <span>Active Directory</span>
+      <span>PowerShell</span>
+      <span>Proxmox VE</span>
+      <span>Docker</span>
+      <span>Linux</span>
+      <span>Cisco Networking</span>
+      <span>SonicWall</span>
+      <span>NinjaOne</span>
+      <span>SentinelOne</span>
+      <span>Barracuda</span>
+      <span>Guardz</span>
+      <span>Huntress</span>
     </div>
   </section>
 </Layout>
 
 <style>
-  .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 3rem 1.5rem;
-  }
+.about {
+  max-width: 850px;
+  margin: 80px auto;
+  padding: 2rem;
+}
 
-  h1 {
-    margin-bottom: 2rem;
-  }
+.about h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
 
-  h2 {
-    margin-top: 2.5rem;
-  }
+.about h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
 
-  p {
-    line-height: 1.8;
-    color: #cfcfcf;
-    margin-bottom: 1rem;
-  }
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
 
-  .skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1rem;
+}
 
-  .skills h3 {
-    margin-bottom: 0.75rem;
-    color: white;
-  }
-
-  .skills ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .skills li {
-    margin-bottom: 0.5rem;
-    color: #cfcfcf;
-  }
+.skills span {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: #f8fafc;
+}
 </style>
