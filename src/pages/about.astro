@@ -9,36 +9,89 @@ import Layout from "../layouts/Layout.astro";
     <p>
       I'm a Systems Administrator with a passion for building reliable,
       secure, and efficient IT infrastructure. I enjoy solving technical
-      problems, learning new technologies, and creating home lab projects
-      that help me grow professionally.
+      problems, automating repetitive tasks, and continuously learning new
+      technologies through both my professional work and my home lab.
     </p>
 
-    <h2>What I Do</h2>
+    <h2>Professional Experience</h2>
 
     <p>
-      In my day-to-day work, I support business environments using Microsoft
-      365, Entra ID, Windows systems, networking, and endpoint management.
-      I enjoy troubleshooting complex issues and finding long-term solutions
-      rather than temporary fixes.
+      I currently work as a Systems Administrator at a Managed Service
+      Provider (MSP), where I support a variety of business environments.
+      My responsibilities include Microsoft 365 administration, Entra ID,
+      Active Directory, endpoint management, cybersecurity, networking,
+      and PowerShell automation.
+    </p>
+
+    <p>
+      Every day I work with technologies including Microsoft 365,
+      Microsoft Entra ID, Active Directory, PowerShell, NinjaOne,
+      SentinelOne, Huntress, Guardz, Barracuda, and SonicWall to deploy,
+      secure, monitor, and support client environments.
     </p>
 
     <h2>My Home Lab</h2>
 
     <p>
-      Outside of work, I maintain a Proxmox-based home lab where I experiment
-      with virtualization, Docker containers, networking, automation, and
-      self-hosted services. It allows me to explore enterprise technologies
-      in a hands-on environment and continuously improve my skills.
+      Outside of work, I maintain a Proxmox-based home lab where I
+      experiment with virtualization, Docker containers, networking,
+      automation, and self-hosted services. My lab allows me to test new
+      technologies, improve my troubleshooting skills, and build real-world
+      projects that reinforce what I learn professionally.
     </p>
 
     <h2>Currently Learning</h2>
 
     <p>
-      I'm continually expanding my knowledge in networking, automation,
-      Linux administration, and infrastructure technologies. I believe the
-      best way to learn is by building real projects and documenting the
-      process.
+      I'm continually expanding my knowledge of networking, Linux,
+      automation, virtualization, and enterprise infrastructure. I'm
+      currently focused on strengthening my networking expertise while
+      continuing to build practical projects that demonstrate real-world
+      problem solving.
     </p>
+
+    <h2>Technologies I Use</h2>
+
+    <div class="skills">
+      <div>
+        <h3>Microsoft</h3>
+        <ul>
+          <li>Microsoft 365</li>
+          <li>Microsoft Entra ID</li>
+          <li>Active Directory</li>
+          <li>PowerShell</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Endpoint Management</h3>
+        <ul>
+          <li>NinjaOne</li>
+          <li>SentinelOne</li>
+          <li>Huntress</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Security</h3>
+        <ul>
+          <li>Guardz</li>
+          <li>Barracuda</li>
+          <li>SentinelOne</li>
+          <li>Huntress</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Networking</h3>
+        <ul>
+          <li>SonicWall</li>
+          <li>DNS</li>
+          <li>DHCP</li>
+          <li>VPN</li>
+        </ul>
+      </div>
+    </div>
   </section>
 </Layout>
 
@@ -59,6 +112,29 @@ import Layout from "../layouts/Layout.astro";
 
   p {
     line-height: 1.8;
+    color: #cfcfcf;
+    margin-bottom: 1rem;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .skills h3 {
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+
+  .skills ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skills li {
+    margin-bottom: 0.5rem;
     color: #cfcfcf;
   }
 </style>
