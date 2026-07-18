@@ -1,6 +1,8 @@
 ---
 const { title = "Justin Hoffmann | Portfolio" } = Astro.props;
+
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -27,46 +29,53 @@ import Header from "../components/Header.astro";
     />
   </head>
 
- <body>
-  <Header />
-  <slot />
-</body>
+  <body>
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
 </html>
 
 <style is:global>
-:root{
-    --bg:#0f172a;
-    --surface:#1e293b;
-    --text:#f8fafc;
-    --muted:#94a3b8;
-    --primary:#3b82f6;
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
 }
 
-*{
-    box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:"Inter",sans-serif;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
 }
 
-a{
-    color:inherit;
+a {
+  color: inherit;
 }
 
-img{
-    max-width:100%;
+img {
+  max-width: 100%;
 }
 
-main{
-    width:min(1100px,90%);
-    margin:auto;
+main {
+  width: min(1100px, 90%);
+  margin: auto;
+  min-height: calc(100vh - 180px);
+  padding: 2rem 0;
 }
 </style>
