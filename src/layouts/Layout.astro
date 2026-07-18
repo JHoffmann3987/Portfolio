@@ -1,13 +1,72 @@
+---
+const { title = "Justin Hoffmann | Portfolio" } = Astro.props;
+import Header from "../components/Header.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Justin Hoffmann's IT portfolio featuring homelab projects, networking, automation, Linux, and systems administration."
+    />
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+ <body>
+  <Header />
+  <slot />
+</body>
+</html>
+
 <style is:global>
-:root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --border: #334155;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --primary: #3b82f6;
-  --primary-light: #60a5fa;
-  --primary-dark: #1d4ed8;
+:root{
+    --bg:#0f172a;
+    --surface:#1e293b;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --primary:#3b82f6;
 }
-/* ...rest unchanged... */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter",sans-serif;
+}
+
+a{
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+main{
+    width:min(1100px,90%);
+    margin:auto;
+}
 </style>
