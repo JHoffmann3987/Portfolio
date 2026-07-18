@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<Layout title="Projects | Justin Hoffmann">
+  <main class="page">
+
+    <h1>Projects</h1>
+
+    <p class="lead">
+      These projects represent the technologies, tools, and infrastructure I've
+      built while expanding my knowledge of enterprise IT.
+    </p>
+
+    <div class="grid">
+
+      <ProjectCard
+        title="🖥️ Proxmox Home Lab"
+        description="Virtualization environment running Linux servers, Docker containers, networking labs, and self-hosted services."
+      />
+
+      <ProjectCard
+        title="🐳 Docker Infrastructure"
+        description="Containerized applications including Jellyfin, Homepage, qBittorrent, and supporting services."
+      />
+
+      <ProjectCard
+        title="🌐 Networking Lab"
+        description="Managed switches, VLANs, routing, Cisco equipment, and enterprise networking concepts."
+      />
+
+      <ProjectCard
+        title="⚡ PowerShell Automation"
+        description="Scripts for administration, reporting, troubleshooting, and automation."
+      />
+
+    </div>
+
+  </main>
+</Layout>
+
+<style>
+.page{
+    width:min(1100px,90%);
+    margin:80px auto;
+}
+
+.page h1{
+    text-align:center;
+    font-size:3rem;
+}
+
+.lead{
+    text-align:center;
+    color:#cbd5e1;
+    max-width:800px;
+    margin:2rem auto 4rem;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+}
+</style>

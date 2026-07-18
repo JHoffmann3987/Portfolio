@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact | Justin Hoffmann">
+  <main class="contact">
+    <h1>Contact</h1>
+
+    <p class="intro">
+      Thanks for visiting my portfolio. Feel free to connect with me or reach
+      out if you'd like to discuss IT, systems administration, networking, or
+      collaboration opportunities.
+    </p>
+
+    <div class="contact-card">
+      <h2>Get in Touch</h2>
+
+      <ul>
+        <li>
+          <strong>Email:</strong>
+          <a href="mailto:jhoffmann3987@yahoo.com">jhoffmann3987@yahoo.com</a>
+        </li>
+
+        <li>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/jhoffmann3987" target="_blank" rel="noopener noreferrer">
+            github.com/jhoffmann3987
+            </a>
+        </li>
+
+        <li>
+          <strong>LinkedIn:</strong>
+          <em>Add your LinkedIn profile here</em>
+        </li>
+
+        <li>
+          <strong>Location:</strong>
+          Pensacola, Florida
+        </li>
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<style>
+.contact {
+  width: min(900px, 90%);
+  margin: 80px auto;
+}
+
+.contact h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.intro {
+  text-align: center;
+  color: #cbd5e1;
+  line-height: 1.8;
+  margin: 2rem auto 3rem;
+  max-width: 700px;
+}
+
+.contact-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.contact-card h2 {
+  margin-top: 0;
+}
+
+.contact-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-card li {
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.contact-card a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+</style>
