@@ -1,0 +1,77 @@
+---
+const skills = [
+  "Windows",
+  "Linux",
+  "Networking",
+  "Proxmox",
+  "Docker",
+  "PowerShell",
+  "Microsoft 365",
+];
+---
+
+<section class="hero">
+  <h1>Justin Hoffmann</h1>
+
+  <h2>Tier 1 IT Technician</h2>
+
+  <p>
+    I'm building enterprise IT skills through hands-on experience with
+    virtualization, networking, Linux, automation, and cloud technologies.
+  </p>
+
+  <a href="/projects" class="button">View My Projects</a>
+
+  <div class="skills">
+    {skills.map((skill) => (
+      <span class="skill">{skill}</span>
+    ))}
+  </div>
+</section>
+
+<style>
+.hero{
+    max-width:900px;
+    margin:auto;
+    padding:120px 30px;
+}
+
+h1{
+    font-size:64px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.button{
+    background:#2563eb;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:40px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    background:#1e293b;
+    color:white;
+    padding:8px 16px;
+    border-radius:999px;
+}
+</style>
