@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Proxmox Home Lab | Justin Hoffmann">
+  <section class="project">
+    <h1>🖥️ Proxmox Home Lab</h1>
+
+    <p class="subtitle">
+      Enterprise-style virtualization environment built to develop practical
+      experience with Linux, Docker, networking, automation, and modern
+      infrastructure technologies.
+    </p>
+
+    <div class="tech-list">
+      <span>Proxmox VE</span>
+      <span>Linux</span>
+      <span>Ubuntu Server</span>
+      <span>Docker</span>
+      <span>PowerShell</span>
+      <span>Git</span>
+      <span>GitHub</span>
+      <span>Networking</span>
+    </div>
+
+    <h2>Overview</h2>
+
+    <p>
+      This home lab serves as my personal environment for learning enterprise
+      infrastructure technologies through hands-on experience. Rather than using
+      cloud-based labs, I built and maintain my own virtualization platform
+      using Proxmox VE, allowing me to safely deploy, configure, troubleshoot,
+      and rebuild systems as I learn.
+    </p>
+
+    <p>
+      The lab has become the foundation for experimenting with Linux
+      administration, Docker containers, networking, storage, automation, and
+      self-hosted applications.
+    </p>
+
+    <h2>Architecture</h2>
+
+    <div class="architecture">
+      Internet │ Router │ Proxmox Server ├── Ubuntu Server VM │ ├── Docker │ ├──
+      Homepage │ ├── Jellyfin │ ├── Sonarr │ ├── Radarr │ ├── Prowlarr │ └──
+      Nginx Proxy Manager │ └── Additional Virtual Machines
+    </div>
+
+    <h2>Technologies Used</h2>
+
+    <ul>
+      <li>Proxmox VE</li>
+      <li>Ubuntu Server</li>
+      <li>Docker</li>
+      <li>Linux</li>
+      <li>Git & GitHub</li>
+      <li>PowerShell</li>
+      <li>TCP/IP Networking</li>
+      <li>SMB File Sharing</li>
+    </ul>
+
+    <h2>Highlights</h2>
+
+    <ul>
+      <li>Built and manage a Proxmox virtualization environment.</li>
+      <li>Deploy Linux virtual machines for testing and development.</li>
+      <li>Host multiple Docker services.</li>
+      <li>Practice networking and storage configuration.</li>
+      <li>Document infrastructure using GitHub.</li>
+      <li>Continuously expand the lab with new technologies.</li>
+    </ul>
+
+    <h2>Challenges</h2>
+
+    <ul>
+      <li>Learning Linux permissions and file ownership.</li>
+      <li>Understanding Docker networking.</li>
+      <li>Configuring shared storage.</li>
+      <li>Troubleshooting container deployments.</li>
+      <li>Managing virtual networking inside Proxmox.</li>
+    </ul>
+
+    <h2>What I Learned</h2>
+
+    <p>
+      Building this home lab has significantly improved my understanding of
+      virtualization, Linux administration, Docker, networking, storage, and
+      troubleshooting. It has reinforced the importance of documentation,
+      backups, version control, and solving technical problems through careful
+      testing rather than guesswork.
+    </p>
+
+    <div class="gallery">
+      <h2>Gallery</h2>
+
+      <p>
+        Screenshots of the environment will be added as the project continues to
+        evolve.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .project {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 2rem;
+  }
+
+  .project h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .tech-list span {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+
+  .project h2 {
+    margin-top: 3rem;
+  }
+
+  .project p,
+  .project li {
+    color: #cbd5e1;
+    line-height: 1.8;
+  }
+
+  .project ul {
+    padding-left: 1.25rem;
+  }
+
+  .architecture {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  .gallery {
+    margin-top: 4rem;
+    border-top: 1px solid #334155;
+    padding-top: 2rem;
+  }
+</style>
