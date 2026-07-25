@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { profile } from "../data/profile";
+---
+
+<Layout title="Contact | Justin Hoffmann">
+  <section class="contact">
+    <h1>Contact</h1>
+
+    <p class="intro">
+      Thanks for visiting my portfolio. If you'd like to connect, discuss an
+      opportunity, or talk about technology, I'd be happy to hear from you.
+    </p>
+
+    <div class="contact-card">
+      <h2>Get in Touch</h2>
+
+      <p>
+        <strong>Email</strong><br />
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </p>
+
+      <p>
+        <strong>GitHub</strong><br />
+        <a href={profile.github} target="_blank" rel="noopener noreferrer">
+          {profile.githubLabel}
+        </a>
+      </p>
+
+      <p>
+        <strong>Location</strong><br />
+        {profile.location}
+      </p>
+
+      <div class="buttons">
+        <a
+          class="primary"
+          href={profile.resumeHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Resume
+        </a>
+
+        <a class="secondary" href={profile.resumeHref} download>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 2rem;
+  }
+
+  .contact h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .contact-card h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .contact-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .contact-card a {
+    color: var(--accent-light);
+    text-decoration: none;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .primary,
+  .secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .primary {
+    background: var(--accent-dark);
+    color: var(--white);
+  }
+
+  .primary:hover {
+    background: var(--accent-darker);
+  }
+
+  .secondary {
+    background: transparent;
+    color: var(--accent-light);
+    border: 1px solid var(--accent);
+  }
+
+  .secondary:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import Badge from "./ui/Badge.astro";
+
+const skillGroups = [
+  {
+    title: "Microsoft 365 & Identity",
+    description:
+      "Daily administration of Microsoft 365 environments while supporting business clients in a Managed Service Provider (MSP) environment.",
+    skills: [
+      "Microsoft 365",
+      "Exchange Online",
+      "Entra ID",
+      "Intune",
+      "Azure Fundamentals",
+      "MFA",
+      "User Management",
+    ],
+  },
+
+  {
+    title: "Windows & Active Directory",
+    description:
+      "Supporting Windows workstations and servers, managing users, permissions, and core infrastructure services.",
+    skills: [
+      "Windows 11",
+      "Windows Server",
+      "Active Directory",
+      "Group Policy",
+      "DNS",
+      "DHCP",
+    ],
+  },
+
+  {
+    title: "Virtualization",
+    description:
+      "Building and maintaining a Proxmox home lab to gain experience with enterprise virtualization and infrastructure.",
+    skills: [
+      "Proxmox VE",
+      "Virtual Machines",
+      "LXC Containers",
+      "Snapshots",
+      "Storage",
+      "Backups",
+    ],
+  },
+
+  {
+    title: "Linux & Docker",
+    description:
+      "Deploying and maintaining self-hosted services using Docker while improving Linux administration skills.",
+    skills: [
+      "Ubuntu Server",
+      "Docker",
+      "Docker Compose",
+      "Linux CLI",
+      "Nginx Proxy Manager",
+      "Jellyfin",
+      "Uptime Kuma",
+    ],
+  },
+
+  {
+    title: "Networking",
+    description:
+      "Building and troubleshooting small business and home lab networks while learning enterprise networking concepts.",
+    skills: ["TCP/IP", "VLANs", "DNS", "DHCP", "VPN", "SonicWall"],
+  },
+
+  {
+    title: "Security",
+    description:
+      "Supporting endpoint protection, identity security, and email security platforms used by business clients.",
+    skills: [
+      "SentinelOne",
+      "Huntress",
+      "Guardz",
+      "Barracuda",
+      "Endpoint Protection",
+    ],
+  },
+
+  {
+    title: "Automation & Development",
+    description:
+      "Writing scripts and using version control to automate repetitive tasks and document infrastructure projects.",
+    skills: ["PowerShell", "Git", "GitHub", "VS Code", "Scripting"],
+  },
+
+  {
+    title: "IT Operations",
+    description:
+      "Providing technical support, documentation, remote troubleshooting, and endpoint management in an MSP environment.",
+    skills: [
+      "NinjaOne",
+      "Remote Support",
+      "Hardware Troubleshooting",
+      "Software Deployment",
+      "Documentation",
+      "Customer Support",
+    ],
+  },
+];
+---
+
+<section id="skills" class="skills">
+  <SectionHeading
+    title="Skills & Technologies"
+    description="My technical experience comes from supporting business clients in a Managed Service Provider (MSP) environment while continuously expanding my knowledge through hands-on home lab projects and self-hosted infrastructure."
+  />
+
+  <div class="skills-grid">
+    {
+      skillGroups.map((group) => (
+        <div class="skill-card">
+          <h3>{group.title}</h3>
+
+          <p class="card-description">{group.description}</p>
+
+          <div class="badges">
+            {group.skills.map((skill) => (
+              <Badge>{skill}</Badge>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skills {
+    padding: 8rem 0;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border-alt);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: all 0.25s ease;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.15);
+  }
+
+  .skill-card h3 {
+    margin: 0 0 1rem;
+    color: var(--text);
+    font-size: 1.3rem;
+  }
+
+  .card-description {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .skills {
+      padding: 5rem 0;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  number?: string;
+}
+
+const { title, description, number } = Astro.props;
+---
+
+<div class="section-heading">
+  <span class="line"></span>
+
+  <div class="content">
+    <h2>{number && <span class="number">{number}</span>}{title}</h2>
+
+    {description && <p class="description">{description}</p>}
+  </div>
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 2.25rem;
+    font-weight: 700;
+  }
+
+  .number {
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+
+  .description {
+    margin-top: 1rem;
+    max-width: 760px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    .section-heading {
+      gap: 1rem;
+    }
+
+    .line {
+      width: 45px;
+    }
+  }
+</style>

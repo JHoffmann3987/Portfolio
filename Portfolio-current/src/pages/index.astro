@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Sidebar from "../components/Sidebar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <div class="page">
+    <aside>
+      <Sidebar />
+    </aside>
+
+    <main>
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Contact />
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+  }
+
+  aside {
+    width: 420px;
+    flex-shrink: 0;
+  }
+
+  main {
+    flex: 1;
+    min-width: 0;
+
+    padding: 4rem 2rem 6rem;
+  }
+
+  @media (max-width: 900px) {
+    .page {
+      display: block;
+    }
+
+    aside {
+      width: 100%;
+    }
+
+    main {
+      padding: 2rem;
+    }
+  }
+</style>
