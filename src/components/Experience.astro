@@ -157,61 +157,81 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .timeline-item {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 2rem;
+    grid-template-columns: 80px 1fr;
   }
 
   .timeline-date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.35rem 0.75rem;
+    padding-top: 0;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid #233554;
     color: #60a5fa;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding-top: 0.5rem;
   }
 
   .timeline-content {
     background: #112240;
     border: 1px solid #233554;
-    border-radius: 14px;
-    padding: 2rem;
-    transition: all 0.25s ease;
+    border-radius: 18px;
+    padding: 2.5rem;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
   }
 
   .timeline-content:hover {
     border-color: #3b82f6;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 16px 40px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
   }
 
   .timeline-content h3 {
     color: #f8fafc;
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     margin: 0;
   }
 
   .company {
     color: #60a5fa;
     font-weight: 600;
-    margin: 0.5rem 0 1.5rem;
+    margin: 0.75rem 0 2rem;
   }
 
   .description {
     color: #94a3b8;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-
-  .responsibilities {
-    color: #cbd5e1;
-    line-height: 1.9;
-    padding-left: 1.25rem;
     margin-bottom: 2rem;
   }
 
+  .responsibilities {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+
   .responsibilities li {
-    margin-bottom: 0.65rem;
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #cbd5e1;
+    line-height: 1.8;
+  }
+
+  .responsibilities li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+    font-weight: 700;
   }
 
   .tech-stack {
@@ -228,6 +248,12 @@ import SectionHeading from "./ui/SectionHeading.astro";
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .tech-stack span:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
   }
 
   @media (max-width: 768px) {
@@ -235,23 +261,12 @@ import SectionHeading from "./ui/SectionHeading.astro";
       padding: 5rem 0;
     }
 
-.timeline-date {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(59,130,246,.12);
-  border: 1px solid rgba(59,130,246,.25);
-  color: #60a5fa;
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-    .timeline-date {
-      padding-top: 0;
+    .timeline-item {
+      align-items: start;
     }
 
+    .timeline-date {
+      margin-bottom: 1rem;
+    }
+  }
 </style>
