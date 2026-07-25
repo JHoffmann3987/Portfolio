@@ -1,7 +1,11 @@
 <section id="experience" class="experience">
   <div class="section-heading">
     <span class="line"></span>
-    <h2>Experience</h2>
+
+    <div>
+      <p class="section-number">02.</p>
+      <h2>Experience</h2>
+    </div>
   </div>
 
   <div class="timeline">
@@ -14,26 +18,51 @@
         <p class="company">Managed Service Provider (MSP)</p>
 
         <p class="description">
-          Provide technical support for business clients by troubleshooting
-          Microsoft 365, Windows, networking, hardware, and identity-related
-          issues while helping maintain secure and reliable IT environments.
+          I provide day-to-day technical support for business clients across a
+          variety of industries, helping maintain secure, reliable, and
+          productive IT environments. My role combines troubleshooting,
+          administration, customer service, and continuous learning while
+          supporting Microsoft 365, Windows, networking, and endpoint security.
         </p>
 
         <ul class="responsibilities">
           <li>
-            Support Microsoft 365, Exchange Online, and Entra ID administration.
+            Administer Microsoft 365, Exchange Online, and Entra ID
+            environments.
           </li>
-          <li>Manage user accounts, licensing, password resets, and MFA.</li>
+
           <li>
-            Troubleshoot Windows desktop, networking, printers, and hardware.
+            Manage user onboarding, offboarding, licensing, MFA, and password
+            resets.
           </li>
-          <li>Deploy and maintain endpoint security solutions.</li>
-          <li>Assist with Active Directory administration.</li>
+
+          <li>
+            Troubleshoot Windows desktops, printers, hardware, networking, and
+            application issues.
+          </li>
+
+          <li>
+            Support Active Directory administration and user account management.
+          </li>
+
+          <li>
+            Deploy, monitor, and troubleshoot endpoint security solutions.
+          </li>
+
           <li>
             Create PowerShell scripts to automate repetitive administrative
             tasks.
           </li>
-          <li>Provide remote support using RMM and remote access tools.</li>
+
+          <li>
+            Provide remote support using NinjaOne and other remote management
+            tools.
+          </li>
+
+          <li>
+            Document procedures and assist with improving internal support
+            workflows.
+          </li>
         </ul>
 
         <div class="tech-stack">
@@ -61,26 +90,55 @@
         <p class="company">Personal Infrastructure Project</p>
 
         <p class="description">
-          Design, build, and document enterprise-inspired infrastructure to
-          strengthen practical skills beyond day-to-day support work.
+          My home lab serves as a practical learning environment where I build,
+          break, troubleshoot, and document enterprise-inspired infrastructure.
+          It allows me to gain hands-on experience with technologies beyond my
+          daily responsibilities and continually strengthen my systems
+          administration skills.
         </p>
 
         <ul class="responsibilities">
-          <li>Deploy and manage a Proxmox virtualization environment.</li>
-          <li>Host Docker containers for self-hosted applications.</li>
-          <li>Configure Linux servers and shared storage.</li>
-          <li>Learn networking concepts including VLANs and routing.</li>
-          <li>Document projects and build repeatable deployments.</li>
-          <li>Experiment with automation and infrastructure best practices.</li>
+          <li>Deploy and maintain a Proxmox virtualization environment.</li>
+
+          <li>
+            Host Docker containers for self-hosted infrastructure and services.
+          </li>
+
+          <li>
+            Configure Linux servers, storage, permissions, and networking.
+          </li>
+
+          <li>
+            Experiment with VLANs, routing, DNS, and virtualization concepts.
+          </li>
+
+          <li>
+            Implement monitoring, dashboards, reverse proxies, and media
+            services.
+          </li>
+
+          <li>
+            Document deployments and maintain a GitHub repository for projects.
+          </li>
+
+          <li>
+            Practice troubleshooting by intentionally testing and recovering
+            from failures.
+          </li>
+
+          <li>
+            Continuously expand knowledge through hands-on experimentation.
+          </li>
         </ul>
 
         <div class="tech-stack">
-          <span>Proxmox</span>
+          <span>Proxmox VE</span>
           <span>Docker</span>
-          <span>Ubuntu</span>
+          <span>Ubuntu Server</span>
           <span>Linux</span>
           <span>Networking</span>
-          <span>Virtualization</span>
+          <span>VLANs</span>
+          <span>Nginx Proxy Manager</span>
           <span>PowerShell</span>
           <span>Git</span>
           <span>GitHub</span>
@@ -97,8 +155,8 @@
 
   .section-heading {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 1.25rem;
     margin-bottom: 3rem;
   }
 
@@ -106,11 +164,23 @@
     width: 60px;
     height: 2px;
     background: #3b82f6;
+    margin-top: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .section-number {
+    margin: 0;
+    color: #3b82f6;
+    font-family: monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
   }
 
   .section-heading h2 {
+    margin: 0.35rem 0 0;
     color: #f8fafc;
     font-size: 2rem;
+    font-weight: 700;
   }
 
   .timeline {
@@ -131,6 +201,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    padding-top: 0.5rem;
   }
 
   .timeline-content {
@@ -138,24 +209,25 @@
     border: 1px solid #233554;
     border-radius: 14px;
     padding: 2rem;
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
   }
 
   .timeline-content:hover {
     border-color: #3b82f6;
     transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
   }
 
   .timeline-content h3 {
     color: #f8fafc;
     font-size: 1.5rem;
-    margin-bottom: 0.4rem;
+    margin: 0;
   }
 
   .company {
     color: #60a5fa;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin: 0.5rem 0 1.5rem;
   }
 
   .description {
@@ -167,8 +239,12 @@
   .responsibilities {
     color: #cbd5e1;
     line-height: 1.9;
-    margin-left: 1.25rem;
+    padding-left: 1.25rem;
     margin-bottom: 2rem;
+  }
+
+  .responsibilities li {
+    margin-bottom: 0.65rem;
   }
 
   .tech-stack {
@@ -181,6 +257,7 @@
     padding: 0.45rem 0.9rem;
     background: rgba(59, 130, 246, 0.12);
     color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -193,10 +270,15 @@
 
     .timeline-item {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .timeline-date {
-      margin-bottom: -1rem;
+      padding-top: 0;
+    }
+
+    .section-heading h2 {
+      font-size: 1.75rem;
     }
   }
 </style>
