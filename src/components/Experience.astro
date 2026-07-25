@@ -27,35 +27,28 @@ import SectionHeading from "./ui/SectionHeading.astro";
             Administer Microsoft 365, Exchange Online, and Entra ID
             environments.
           </li>
-
           <li>
             Manage user onboarding, offboarding, licensing, MFA, and password
             resets.
           </li>
-
           <li>
             Troubleshoot Windows desktops, printers, hardware, networking, and
             application issues.
           </li>
-
           <li>
             Support Active Directory administration and user account management.
           </li>
-
           <li>
             Deploy, monitor, and troubleshoot endpoint security solutions.
           </li>
-
           <li>
             Create PowerShell scripts to automate repetitive administrative
             tasks.
           </li>
-
           <li>
             Provide remote support using NinjaOne and other remote management
             tools.
           </li>
-
           <li>
             Document procedures and assist with improving internal support
             workflows.
@@ -96,33 +89,26 @@ import SectionHeading from "./ui/SectionHeading.astro";
 
         <ul class="responsibilities">
           <li>Deploy and maintain a Proxmox virtualization environment.</li>
-
           <li>
             Host Docker containers for self-hosted infrastructure and services.
           </li>
-
           <li>
             Configure Linux servers, storage, permissions, and networking.
           </li>
-
           <li>
             Experiment with VLANs, routing, DNS, and virtualization concepts.
           </li>
-
           <li>
             Implement monitoring, dashboards, reverse proxies, and media
             services.
           </li>
-
           <li>
             Document deployments and maintain a GitHub repository for projects.
           </li>
-
           <li>
             Practice troubleshooting by intentionally testing and recovering
             from failures.
           </li>
-
           <li>
             Continuously expand knowledge through hands-on experimentation.
           </li>
@@ -153,11 +139,14 @@ import SectionHeading from "./ui/SectionHeading.astro";
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
   }
 
   .timeline-item {
+    display: grid;
     grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: start;
   }
 
   .timeline-date {
@@ -166,11 +155,12 @@ import SectionHeading from "./ui/SectionHeading.astro";
     justify-content: center;
     width: fit-content;
     padding: 0.35rem 0.75rem;
-    padding-top: 0;
     border-radius: 999px;
-    background: rgba(59, 130, 246, 0.12);
-    border: 1px solid #233554;
-    color: #60a5fa;
+
+    background: rgba(52, 211, 153, 0.12);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+
+    color: #34d399;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -178,10 +168,11 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .timeline-content {
-    background: #112240;
-    border: 1px solid #233554;
+    background: #101b2b;
+    border: 1px solid #223449;
     border-radius: 18px;
     padding: 2.5rem;
+
     transition:
       border-color 0.25s ease,
       box-shadow 0.25s ease,
@@ -189,39 +180,47 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .timeline-content:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 16px 40px rgba(59, 130, 246, 0.15);
+    border-color: #34d399;
+    box-shadow: 0 16px 40px rgba(16, 185, 129, 0.18);
     transform: translateY(-2px);
   }
 
   .timeline-content h3 {
+    margin: 0;
+
     color: #f8fafc;
     font-size: 1.65rem;
-    margin: 0;
+    font-weight: 700;
   }
 
   .company {
-    color: #60a5fa;
-    font-weight: 600;
     margin: 0.75rem 0 2rem;
+
+    color: #34d399;
+    font-weight: 600;
   }
 
   .description {
+    max-width: 70ch;
+    margin-bottom: 2rem;
+
     color: #94a3b8;
     line-height: 1.8;
-    margin-bottom: 2rem;
   }
 
   .responsibilities {
-    list-style: none;
-    padding: 0;
+    max-width: 70ch;
     margin: 0 0 2rem;
+    padding: 0;
+
+    list-style: none;
   }
 
   .responsibilities li {
     position: relative;
-    padding-left: 1.4rem;
     margin-bottom: 0.8rem;
+    padding-left: 1.4rem;
+
     color: #cbd5e1;
     line-height: 1.8;
   }
@@ -230,30 +229,36 @@ import SectionHeading from "./ui/SectionHeading.astro";
     content: "▹";
     position: absolute;
     left: 0;
-    color: #3b82f6;
+
+    color: #34d399;
     font-weight: 700;
   }
 
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    column-gap: 0.75rem;
+    row-gap: 0.9rem;
   }
 
   .tech-stack span {
     padding: 0.45rem 0.9rem;
-    background: rgba(59, 130, 246, 0.12);
-    color: #60a5fa;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+
+    background: rgba(52, 211, 153, 0.12);
+    border: 1px solid rgba(52, 211, 153, 0.25);
     border-radius: 999px;
+
+    color: #34d399;
     font-size: 0.85rem;
     font-weight: 600;
+
     transition: all 0.2s ease;
   }
 
   .tech-stack span:hover {
-    background: rgba(59, 130, 246, 0.2);
-    border-color: #3b82f6;
+    background: rgba(52, 211, 153, 0.2);
+    border-color: #34d399;
+    color: #6ee7b7;
   }
 
   @media (max-width: 768px) {
@@ -262,11 +267,17 @@ import SectionHeading from "./ui/SectionHeading.astro";
     }
 
     .timeline-item {
-      align-items: start;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .timeline-date {
       margin-bottom: 1rem;
+    }
+
+    .description,
+    .responsibilities {
+      max-width: 100%;
     }
   }
 </style>

@@ -1,0 +1,23 @@
+:root {
+  /* Backgrounds */
+  --bg: #0b1320;
+  --surface: #101b2b;
+  --surface-hover: #16263b;
+
+  /* Borders */
+  --border: #223449;
+  --border-hover: #2e4c67;
+
+  /* Typography */
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* Accent */
+  --accent: #2dd4bf;
+  --accent-light: #5eead4;
+  --accent-dark: #14b8a6;
+
+  /* Effects */
+  --shadow: rgba(20, 184, 166, 0.2);
+}
