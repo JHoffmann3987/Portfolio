@@ -1,5 +1,6 @@
 ---
 import SectionHeading from "./ui/SectionHeading.astro";
+import { profile } from "../data/profile";
 ---
 
 <section id="contact" class="contact">
@@ -19,54 +20,47 @@ import SectionHeading from "./ui/SectionHeading.astro";
       lab focused on virtualization, Linux, Docker, networking, and automation.
     </p>
 
-    <p>
-      I'm always interested in connecting with other IT professionals,
-      collaborating on projects, and exploring new career opportunities.
-    </p>
+    <p>{profile.contactIntro}</p>
 
     <div class="contact-info">
       <div class="info-item">
         <span class="label">Email</span>
 
-        <a href="mailto:jhoffmann3987@yahoo.com"> jhoffmann3987@yahoo.com </a>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </div>
 
       <div class="info-item">
         <span class="label">GitHub</span>
 
-        <a
-          href="https://github.com/jhoffmann3987"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          github.com/jhoffmann3987
+        <a href={profile.github} target="_blank" rel="noopener noreferrer">
+          {profile.githubLabel}
         </a>
       </div>
 
       <div class="info-item">
         <span class="label">Location</span>
 
-        <span>Pensacola, Florida</span>
+        <span>{profile.location}</span>
       </div>
     </div>
 
     <div class="buttons">
       <a
         class="primary"
-        href="/Justin_Hoffmann_Resume_July2026.pdf"
+        href={profile.resumeHref}
         target="_blank"
         rel="noopener noreferrer"
       >
         View Resume
       </a>
 
-      <a class="secondary" href="/Justin_Hoffmann_Resume_July2026.pdf" download>
+      <a class="secondary" href={profile.resumeHref} download>
         Download Resume
       </a>
 
       <a
         class="secondary"
-        href="https://github.com/jhoffmann3987"
+        href={profile.github}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -169,7 +163,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
 
   .primary {
     background: var(--accent);
-    color: white;
+    color: var(--white);
   }
 
   .primary:hover {

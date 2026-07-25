@@ -24,6 +24,10 @@ export interface Project {
   detailHighlights: string[];
   challenges: string[];
   learned: string;
+  /** Optional link to the public GitHub repo for this project */
+  githubUrl?: string;
+  /** Optional screenshot paths (relative to /public), e.g. "/projects/proxmox/dashboard.png" */
+  screenshots?: string[];
 }
 
 export const projects: Project[] = [

@@ -1,92 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { profile } from "../data/profile";
 ---
 
 <Layout title="About | Justin Hoffmann">
   <section class="about">
     <h1>About Me</h1>
 
-    <p>
-      I'm an IT Support Technician working in a Managed Service Provider (MSP)
-      environment, where I support business clients with Microsoft 365,
-      Windows, Microsoft Entra ID, endpoint management, and day-to-day
-      technical troubleshooting.
-    </p>
-
-    <p>
-      Outside of work, I enjoy building and maintaining a home lab where I can
-      gain practical experience with virtualization, Linux, Docker,
-      networking, automation, and other infrastructure technologies. It gives
-      me the opportunity to explore new tools and solve real-world technical
-      challenges in a hands-on environment.
-    </p>
-
-    <p>
-      My goal is to continue growing my skills in systems administration,
-      networking, and infrastructure engineering. I'm always looking for new
-      opportunities to learn, whether that's deploying a new service in my
-      home lab, writing PowerShell scripts to automate tasks, or expanding my
-      knowledge of enterprise technologies.
-    </p>
+    {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
 
     <h2>Technologies I Work With</h2>
 
-    <div class="skills">
-      <span>Microsoft 365</span>
-      <span>Microsoft Entra ID</span>
-      <span>Active Directory</span>
-      <span>PowerShell</span>
-      <span>Proxmox VE</span>
-      <span>Docker</span>
-      <span>Linux</span>
-      <span>Cisco Networking</span>
-      <span>SonicWall</span>
-      <span>NinjaOne</span>
-      <span>SentinelOne</span>
-      <span>Barracuda</span>
-      <span>Guardz</span>
-      <span>Huntress</span>
+    <div class="tech-columns">
+      {
+        profile.techColumns.map((column) => (
+          <div class="tech-column">
+            <h3>{column.title}</h3>
+            <div class="skills">
+              {column.items.map((item) => (
+                <span>{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </section>
 </Layout>
 
 <style>
-.about {
-  max-width: 850px;
-  margin: 80px auto;
-  padding: 2rem;
-}
+  .about {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 2rem;
+  }
 
-.about h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
+  .about h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
 
-.about h2 {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
+  .about h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
 
-.about p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-}
+  .about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
 
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 1rem;
-}
+  .tech-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
 
-.skills span {
-  background: var(--surface-alt);
-  border: 1px solid var(--border-strong);
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  color: var(--text);
-}
+  .tech-column h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .skills span {
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
 </style>

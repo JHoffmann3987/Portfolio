@@ -1,3 +1,7 @@
+---
+import { profile } from "../data/profile";
+---
+
 <section class="hero" id="hero">
   <p class="eyebrow">Hi, I'm Justin.</p>
 
@@ -23,7 +27,7 @@
   <div class="hero-buttons">
     <a
       class="primary"
-      href="/Justin_Hoffmann_Resume_July2026.pdf"
+      href={profile.resumeHref}
       target="_blank"
       rel="noopener noreferrer"
     >

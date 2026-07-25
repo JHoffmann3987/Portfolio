@@ -1,10 +1,14 @@
+---
+import { profile } from "../data/profile";
+---
+
 <aside class="sidebar">
   <div class="intro">
-    <h1>Justin Hoffmann</h1>
+    <h1>{profile.name}</h1>
 
     <h2>
-      IT Support Technician
-      <span>Microsoft 365 · Infrastructure · Home Lab</span>
+      {profile.title}
+      <span>{profile.tagline}</span>
     </h2>
 
     <p>
@@ -41,19 +45,11 @@
   </nav>
 
   <div class="social">
-    <a
-      href="https://github.com/jhoffmann3987"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={profile.github} target="_blank" rel="noopener noreferrer">
       GitHub
     </a>
 
-    <a
-      href="/Justin_Hoffmann_Resume_July2026.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={profile.resumeHref} target="_blank" rel="noopener noreferrer">
       Resume
     </a>
   </div>

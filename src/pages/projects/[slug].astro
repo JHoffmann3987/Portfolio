@@ -22,6 +22,19 @@ const { project } = Astro.props;
       {project.techList.map((tech) => <span>{tech}</span>)}
     </div>
 
+    {
+      project.githubUrl && (
+        <a
+          class="github-link"
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View on GitHub →
+        </a>
+      )
+    }
+
     <h2>Overview</h2>
 
     {project.overview.map((paragraph) => <p>{paragraph}</p>)}
@@ -60,7 +73,17 @@ const { project } = Astro.props;
     <div class="gallery">
       <h2>Gallery</h2>
 
-      <p>Screenshots of the environment will be added as the project continues to evolve.</p>
+      {
+        project.screenshots && project.screenshots.length > 0 ? (
+          <div class="screenshot-grid">
+            {project.screenshots.map((src) => (
+              <img src={src} alt={`${project.title} screenshot`} loading="lazy" />
+            ))}
+          </div>
+        ) : (
+          <p>Screenshots of the environment will be added as the project continues to evolve.</p>
+        )
+      }
     </div>
 
     <a href="/projects" class="back-link">← Back to all projects</a>
@@ -100,6 +123,41 @@ const { project } = Astro.props;
     color: var(--text);
     padding: 0.5rem 1rem;
     border-radius: 999px;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.4rem;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    color: var(--accent-light);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .github-link:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--accent-lighter);
+    transform: translateY(-2px);
+  }
+
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .screenshot-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    display: block;
   }
 
   .project h2 {
