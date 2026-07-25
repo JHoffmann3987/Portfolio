@@ -1,120 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+
+import Sidebar from "../components/Sidebar.astro";
+
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
 ---
 
-<Layout title="Justin Hoffmann | IT Support Technician">
-  <main class="hero">
-    <h1>Justin Hoffmann</h1>
+<Layout>
+  <div class="wrapper">
+    <Sidebar />
 
-    <p class="subtitle">
-      IT Support Technician
-    </p>
+    <main>
+      <Hero />
 
-    <p class="intro">
-      I'm an IT Support Technician with hands-on experience supporting Microsoft
-      365 environments, troubleshooting Windows systems, and managing endpoint
-      technologies in an MSP environment. Outside of work, I build home lab
-      projects focused on virtualization, Linux, networking, PowerShell, and
-      infrastructure to continuously expand my technical skills.
-    </p>
+      <About />
 
-    <div class="buttons">
-      <a href="/projects">View Projects</a>
-      <a href="/about">About Me</a>
-    </div>
+      <Experience />
 
-    <section class="projects">
-      <h2>Featured Projects</h2>
+      <Projects />
 
-      <div class="grid">
-        <ProjectCard
-          title="Proxmox Home Lab"
-          description="A virtualization environment used to learn Linux, Docker, networking, and enterprise infrastructure through hands-on projects."
-        />
+      <Skills />
 
-        <ProjectCard
-          title="Docker Infrastructure"
-          description="Self-hosted services including Jellyfin, Homepage, qBittorrent, and other applications managed with Docker."
-        />
-
-        <ProjectCard
-          title="Networking Lab"
-          description="Hands-on networking projects covering VLANs, switching, routing, Cisco equipment, and enterprise networking concepts."
-        />
-
-        <ProjectCard
-          title="PowerShell Automation"
-          description="PowerShell scripts that automate administrative tasks, troubleshooting, reporting, and everyday IT workflows."
-        />
-      </div>
-    </section>
-  </main>
+      <Contact />
+    </main>
+  </div>
 </Layout>
 
 <style>
-.hero {
-  max-width: 1000px;
-  margin: 80px auto;
-  padding: 2rem;
-  text-align: center;
-}
+  .wrapper {
+    max-width: 1400px;
 
-h1 {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-}
+    margin: auto;
 
-.subtitle {
-  font-size: 1.4rem;
-  color: #4f7cff;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
+    display: grid;
 
-.intro {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #cbd5e1;
-  max-width: 750px;
-  margin: 0 auto 2.5rem;
-}
+    grid-template-columns: 420px 1fr;
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 5rem;
-}
+    gap: 4rem;
+  }
 
-.buttons a {
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  padding: 0.9rem 1.7rem;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
+  main {
+    padding: 4rem 2rem 6rem;
+  }
 
-.buttons a:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-}
+  @media (max-width: 900px) {
+    .wrapper {
+      display: block;
+    }
 
-.projects {
-  margin-top: 3rem;
-}
-
-.projects h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
+    main {
+      padding: 2rem;
+    }
+  }
 </style>

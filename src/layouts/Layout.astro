@@ -1,8 +1,5 @@
 ---
 const { title = "Justin Hoffmann | IT Support Technician" } = Astro.props;
-
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -13,69 +10,48 @@ import Footer from "../components/Footer.astro";
 
     <title>{title}</title>
 
-    <meta
-      name="description"
-      content="Justin Hoffmann's IT portfolio showcasing Microsoft 365, networking, virtualization, Linux, PowerShell, and home lab projects."
-    />
-
-    <link rel="icon" href="/favicon.ico" />
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
-    <Header />
-
-    <main>
-      <slot />
-    </main>
-
-    <Footer />
+    <slot />
   </body>
 </html>
 
 <style is:global>
-:root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --primary: #3b82f6;
-}
+  :root {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --heading: #f8fafc;
+    --blue: #3b82f6;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", sans-serif;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
 
-a {
-  color: inherit;
-}
+    font-family: Inter, sans-serif;
+  }
 
-img {
-  max-width: 100%;
-}
-
-main {
-  width: min(1100px, 90%);
-  margin: auto;
-  min-height: calc(100vh - 180px);
-  padding: 2rem 0;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 </style>

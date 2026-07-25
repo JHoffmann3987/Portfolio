@@ -1,0 +1,173 @@
+<aside class="sidebar">
+  <div class="intro">
+    <h1>Justin Hoffmann</h1>
+
+    <h2>IT Support Technician</h2>
+
+    <p>
+      Building reliable IT infrastructure through hands-on learning, home lab
+      projects, and real-world experience.
+    </p>
+  </div>
+
+  <nav class="nav">
+    <a href="#about">
+      <span></span>
+      About
+    </a>
+
+    <a href="#experience">
+      <span></span>
+      Experience
+    </a>
+
+    <a href="#projects">
+      <span></span>
+      Projects
+    </a>
+
+    <a href="#skills">
+      <span></span>
+      Skills
+    </a>
+
+    <a href="#contact">
+      <span></span>
+      Contact
+    </a>
+  </nav>
+
+  <div class="social">
+    <a
+      href="https://github.com/jhoffmann3987"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+
+    <a href="/Justin_Hoffmann_Resume.pdf" target="_blank"> Resume </a>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 5rem 2rem;
+  }
+
+  .intro h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+
+    color: #f8fafc;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .intro h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    color: #cbd5e1;
+
+    margin-bottom: 2rem;
+  }
+
+  .intro p {
+    max-width: 290px;
+
+    color: #94a3b8;
+
+    line-height: 1.9;
+
+    font-size: 1rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.25rem;
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    color: #94a3b8;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+
+    transition: 0.25s ease;
+  }
+
+  .nav span {
+    width: 35px;
+    height: 1px;
+
+    background: #475569;
+
+    transition: 0.25s ease;
+  }
+
+  .nav a:hover {
+    color: white;
+  }
+
+  .nav a:hover span {
+    width: 70px;
+
+    background: white;
+  }
+
+  .social {
+    display: flex;
+
+    gap: 1.5rem;
+  }
+
+  .social a {
+    color: #94a3b8;
+
+    transition: 0.2s;
+  }
+
+  .social a:hover {
+    color: white;
+  }
+
+  @media (max-width: 900px) {
+    .sidebar {
+      position: relative;
+
+      height: auto;
+
+      padding: 2rem;
+    }
+
+    .nav {
+      margin: 3rem 0;
+
+      flex-direction: row;
+
+      flex-wrap: wrap;
+    }
+
+    .nav span {
+      display: none;
+    }
+  }
+</style>
