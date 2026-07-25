@@ -1,16 +1,19 @@
 ---
+import SectionHeading from "./ui/SectionHeading.astro";
+import Badge from "./ui/Badge.astro";
+
 const projects = [
   {
     category: "Infrastructure",
     title: "Proxmox Home Lab",
     href: "/projects/proxmox-homelab",
     description:
-      "Built a virtualized home lab using Proxmox VE to gain hands-on experience with enterprise infrastructure, virtualization, Linux administration, storage, and networking. The environment serves as the foundation for all of my self-hosted services and ongoing learning.",
+      "Built and maintain a Proxmox virtualization environment to gain hands-on experience with enterprise infrastructure, virtualization, Linux administration, storage, networking, and self-hosted services. This environment serves as the foundation for all of my home lab projects.",
     highlights: [
       "Virtual Machines & LXC Containers",
       "Shared SMB Storage",
       "Docker Integration",
-      "Snapshot & Backup Management",
+      "Snapshots & Backups",
       "Linux Administration",
     ],
     tags: ["Proxmox VE", "Docker", "Ubuntu", "Linux", "Networking"],
@@ -21,29 +24,29 @@ const projects = [
     title: "Docker Services",
     href: "/projects/docker-services",
     description:
-      "Designed and deployed a collection of Docker containers to host production-like services while learning container management, reverse proxies, monitoring, and service reliability.",
+      "Designed and deployed multiple Docker services to improve monitoring, media management, password security, and overall reliability while learning containerized application deployment.",
     highlights: [
       "Homepage Dashboard",
-      "Jellyfin Media Server",
-      "Uptime Kuma",
+      "Jellyfin",
       "Vaultwarden",
+      "Uptime Kuma",
       "Nginx Proxy Manager",
     ],
     tags: ["Docker", "Docker Compose", "Linux", "Reverse Proxy", "Monitoring"],
   },
 
   {
-    category: "Microsoft 365",
+    category: "Administration",
     title: "Microsoft 365 Administration",
     href: "/projects/microsoft-365",
     description:
-      "Support Microsoft 365 environments for business clients in an MSP setting, including identity management, Exchange Online, licensing, security, and user administration.",
+      "Provide daily administration and support for Microsoft 365 environments in a Managed Service Provider (MSP) setting, helping business clients manage identities, licensing, Exchange Online, and security.",
     highlights: [
       "Exchange Online",
       "Entra ID",
-      "User Provisioning",
-      "Licensing",
+      "Microsoft 365 Licensing",
       "Multi-Factor Authentication",
+      "User Provisioning",
     ],
     tags: ["Microsoft 365", "Exchange", "Entra ID", "PowerShell"],
   },
@@ -51,21 +54,11 @@ const projects = [
 ---
 
 <section id="projects" class="projects">
-  <div class="section-heading">
-    <span class="line"></span>
-
-    <div>
-      <p class="section-number">03.</p>
-      <h2>Featured Projects</h2>
-    </div>
-  </div>
-
-  <p class="intro">
-    These projects represent the technologies I use professionally and the
-    infrastructure I build in my home lab to continue expanding my skills. Every
-    project focuses on solving real problems while improving reliability,
-    automation, and operational knowledge.
-  </p>
+  <SectionHeading
+    number="03."
+    title="Featured Projects"
+    description="Projects that demonstrate my hands-on experience with virtualization, Microsoft 365 administration, Linux, Docker, and enterprise infrastructure."
+  />
 
   <div class="project-list">
     {
@@ -74,7 +67,6 @@ const projects = [
           <div class="project-header">
             <div>
               <p class="overline">{project.category}</p>
-
               <h3>{project.title}</h3>
             </div>
 
@@ -91,7 +83,7 @@ const projects = [
 
           <div class="tags">
             {project.tags.map((tag) => (
-              <span>{tag}</span>
+              <Badge>{tag}</Badge>
             ))}
           </div>
 
@@ -107,41 +99,6 @@ const projects = [
     padding: 8rem 0;
   }
 
-  .section-heading {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-  }
-
-  .line {
-    width: 60px;
-    height: 2px;
-    background: #3b82f6;
-    margin-top: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .section-number {
-    margin: 0;
-    color: #3b82f6;
-    font-family: monospace;
-    font-size: 0.9rem;
-  }
-
-  .section-heading h2 {
-    margin: 0.35rem 0 0;
-    color: #f8fafc;
-    font-size: 2rem;
-  }
-
-  .intro {
-    max-width: 760px;
-    color: #94a3b8;
-    line-height: 1.9;
-    margin-bottom: 3rem;
-  }
-
   .project-list {
     display: flex;
     flex-direction: column;
@@ -153,9 +110,7 @@ const projects = [
     text-decoration: none;
 
     background: #112240;
-
     border: 1px solid #233554;
-
     border-radius: 14px;
 
     padding: 2rem;
@@ -164,11 +119,9 @@ const projects = [
   }
 
   .project-card:hover {
-    transform: translateY(-5px);
-
+    transform: translateY(-6px);
     border-color: #3b82f6;
-
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
   }
 
   .project-header {
@@ -181,32 +134,23 @@ const projects = [
 
   .overline {
     color: #3b82f6;
-
     text-transform: uppercase;
-
     letter-spacing: 0.12em;
-
     font-size: 0.8rem;
-
     font-weight: 700;
-
     margin-bottom: 0.5rem;
   }
 
   .project-header h3 {
-    color: #f8fafc;
-
     margin: 0;
-
+    color: #f8fafc;
     font-size: 1.7rem;
   }
 
   .arrow {
     color: #3b82f6;
-
     font-size: 2rem;
-
-    transition: transform 0.25s;
+    transition: transform 0.25s ease;
   }
 
   .project-card:hover .arrow {
@@ -215,17 +159,13 @@ const projects = [
 
   .description {
     color: #94a3b8;
-
     line-height: 1.8;
-
     margin-bottom: 1.5rem;
   }
 
   .highlights {
     color: #cbd5e1;
-
-    line-height: 1.9;
-
+    line-height: 1.8;
     margin: 0 0 2rem 1.25rem;
   }
 
@@ -235,34 +175,19 @@ const projects = [
 
   .tags {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 0.75rem;
-  }
-
-  .tags span {
-    background: rgba(59, 130, 246, 0.12);
-
-    border: 1px solid rgba(59, 130, 246, 0.2);
-
-    color: #60a5fa;
-
-    padding: 0.45rem 0.9rem;
-
-    border-radius: 999px;
-
-    font-size: 0.85rem;
-
-    font-weight: 600;
   }
 
   .view-project {
     margin-top: 2rem;
-
     color: #60a5fa;
-
     font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .project-card:hover .view-project {
+    color: #93c5fd;
   }
 
   @media (max-width: 768px) {
@@ -277,6 +202,10 @@ const projects = [
 
     .arrow {
       display: none;
+    }
+
+    .project-header h3 {
+      font-size: 1.5rem;
     }
   }
 </style>

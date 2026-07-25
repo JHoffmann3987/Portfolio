@@ -1,3 +1,213 @@
-<section>
-  <h2>Placeholder</h2>
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+---
+
+<section id="contact" class="contact">
+  <SectionHeading
+    number="05."
+    title="Let's Connect"
+    description="Whether you're interested in my work, have an IT opportunity, or simply want to connect, I'd love to hear from you."
+  />
+
+  <div class="contact-card">
+    <h3>Interested in working together?</h3>
+
+    <p>
+      I'm an IT Support Technician working in a Managed Service Provider (MSP)
+      environment, supporting Microsoft 365, Windows, identity management, and
+      endpoint security. Outside of work, I build and maintain a Proxmox home
+      lab focused on virtualization, Linux, Docker, networking, and automation.
+    </p>
+
+    <p>
+      I'm always interested in connecting with other IT professionals,
+      collaborating on projects, and exploring new career opportunities.
+    </p>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <span class="label">Email</span>
+
+        <a href="mailto:jhoffmann3987@yahoo.com"> jhoffmann3987@yahoo.com </a>
+      </div>
+
+      <div class="info-item">
+        <span class="label">GitHub</span>
+
+        <a
+          href="https://github.com/jhoffmann3987"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/jhoffmann3987
+        </a>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Location</span>
+
+        <span>Pensacola, Florida</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a
+        class="primary"
+        href="/Justin_Hoffmann_Resume_July2026.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Resume
+      </a>
+
+      <a class="secondary" href="/Justin_Hoffmann_Resume_July2026.pdf" download>
+        Download Resume
+      </a>
+
+      <a
+        class="secondary"
+        href="https://github.com/jhoffmann3987"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View GitHub
+      </a>
+    </div>
+  </div>
 </section>
+
+<style>
+  .contact {
+    padding: 8rem 0;
+  }
+
+  .contact-card {
+    max-width: 900px;
+    background: #112240;
+    border: 1px solid #233554;
+    border-radius: 14px;
+    padding: 3rem;
+    transition: all 0.25s ease;
+  }
+
+  .contact-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+  }
+
+  .contact-card h3 {
+    margin: 0 0 1.5rem;
+    color: #f8fafc;
+    font-size: 2rem;
+  }
+
+  .contact-card p {
+    color: #94a3b8;
+    line-height: 1.9;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info {
+    margin: 3rem 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label {
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .info-item a,
+  .info-item span:last-child {
+    color: #f8fafc;
+    font-size: 1.05rem;
+  }
+
+  .info-item a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .info-item a:hover {
+    color: #60a5fa;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .primary,
+  .secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.9rem 1.6rem;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+  }
+
+  .primary {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+  }
+
+  .secondary {
+    background: transparent;
+    color: #60a5fa;
+    border: 1px solid #3b82f6;
+  }
+
+  .secondary:hover {
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .contact {
+      padding: 5rem 0;
+    }
+
+    .contact-card {
+      padding: 2rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.7rem;
+    }
+
+    .buttons {
+      flex-direction: column;
+    }
+
+    .primary,
+    .secondary {
+      width: 100%;
+    }
+  }
+</style>
