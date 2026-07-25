@@ -1,3 +1,202 @@
-<section>
-  <h2>Placeholder</h2>
+<section id="experience" class="experience">
+  <div class="section-heading">
+    <span class="line"></span>
+    <h2>Experience</h2>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-date">Present</div>
+
+      <div class="timeline-content">
+        <h3>IT Support Technician</h3>
+
+        <p class="company">Managed Service Provider (MSP)</p>
+
+        <p class="description">
+          Provide technical support for business clients by troubleshooting
+          Microsoft 365, Windows, networking, hardware, and identity-related
+          issues while helping maintain secure and reliable IT environments.
+        </p>
+
+        <ul class="responsibilities">
+          <li>
+            Support Microsoft 365, Exchange Online, and Entra ID administration.
+          </li>
+          <li>Manage user accounts, licensing, password resets, and MFA.</li>
+          <li>
+            Troubleshoot Windows desktop, networking, printers, and hardware.
+          </li>
+          <li>Deploy and maintain endpoint security solutions.</li>
+          <li>Assist with Active Directory administration.</li>
+          <li>
+            Create PowerShell scripts to automate repetitive administrative
+            tasks.
+          </li>
+          <li>Provide remote support using RMM and remote access tools.</li>
+        </ul>
+
+        <div class="tech-stack">
+          <span>Microsoft 365</span>
+          <span>Exchange Online</span>
+          <span>Entra ID</span>
+          <span>Active Directory</span>
+          <span>PowerShell</span>
+          <span>NinjaOne</span>
+          <span>SentinelOne</span>
+          <span>Guardz</span>
+          <span>Barracuda</span>
+          <span>Huntress</span>
+          <span>SonicWall</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="timeline-item">
+      <div class="timeline-date">Ongoing</div>
+
+      <div class="timeline-content">
+        <h3>Home Lab & Continuous Learning</h3>
+
+        <p class="company">Personal Infrastructure Project</p>
+
+        <p class="description">
+          Design, build, and document enterprise-inspired infrastructure to
+          strengthen practical skills beyond day-to-day support work.
+        </p>
+
+        <ul class="responsibilities">
+          <li>Deploy and manage a Proxmox virtualization environment.</li>
+          <li>Host Docker containers for self-hosted applications.</li>
+          <li>Configure Linux servers and shared storage.</li>
+          <li>Learn networking concepts including VLANs and routing.</li>
+          <li>Document projects and build repeatable deployments.</li>
+          <li>Experiment with automation and infrastructure best practices.</li>
+        </ul>
+
+        <div class="tech-stack">
+          <span>Proxmox</span>
+          <span>Docker</span>
+          <span>Ubuntu</span>
+          <span>Linux</span>
+          <span>Networking</span>
+          <span>Virtualization</span>
+          <span>PowerShell</span>
+          <span>Git</span>
+          <span>GitHub</span>
+        </div>
+      </div>
+    </article>
+  </div>
 </section>
+
+<style>
+  .experience {
+    padding: 8rem 0;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .line {
+    width: 60px;
+    height: 2px;
+    background: #3b82f6;
+  }
+
+  .section-heading h2 {
+    color: #f8fafc;
+    font-size: 2rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+  }
+
+  .timeline-date {
+    color: #60a5fa;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .timeline-content {
+    background: #112240;
+    border: 1px solid #233554;
+    border-radius: 14px;
+    padding: 2rem;
+    transition: 0.25s ease;
+  }
+
+  .timeline-content:hover {
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+  }
+
+  .timeline-content h3 {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .company {
+    color: #60a5fa;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .responsibilities {
+    color: #cbd5e1;
+    line-height: 1.9;
+    margin-left: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tech-stack span {
+    padding: 0.45rem 0.9rem;
+    background: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .experience {
+      padding: 5rem 0;
+    }
+
+    .timeline-item {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-date {
+      margin-bottom: -1rem;
+    }
+  }
+</style>
