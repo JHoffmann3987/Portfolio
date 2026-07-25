@@ -1,0 +1,52 @@
+---
+interface Props {
+  color?: "blue" | "green" | "orange";
+}
+
+const { color = "blue" } = Astro.props;
+---
+
+<span class={`badge ${color}`}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0.45rem 0.9rem;
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+
+    border: 1px solid rgba(59, 130, 246, 0.2);
+
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+  }
+
+  .badge:hover {
+    transform: translateY(-2px);
+
+    background: rgba(59, 130, 246, 0.22);
+  }
+
+  .green {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border-color: rgba(34, 197, 94, 0.25);
+  }
+
+  .orange {
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
+    border-color: rgba(249, 115, 22, 0.25);
+  }
+</style>

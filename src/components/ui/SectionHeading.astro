@@ -1,53 +1,70 @@
 ---
 interface Props {
+  number: string;
   title: string;
-  subtitle?: string;
+  description?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { number, title, description } = Astro.props;
 ---
 
-<header class="section-heading">
-  <p class="eyebrow">01.</p>
+<div class="section-heading">
+  <span class="line"></span>
 
-  <div class="heading-content">
+  <div class="content">
+    <p class="number">{number}</p>
+
     <h2>{title}</h2>
 
-    {subtitle && <p class="subtitle">{subtitle}</p>}
+    {description && <p class="description">{description}</p>}
   </div>
-</header>
+</div>
 
 <style>
   .section-heading {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 
-  .eyebrow {
-    color: #3b82f6;
-    font-family: monospace;
-    font-size: 0.95rem;
-    margin: 0;
-    padding-top: 0.4rem;
+  .line {
+    width: 60px;
+    height: 2px;
+    background: #3b82f6;
+    margin-top: 0.9rem;
+    flex-shrink: 0;
   }
 
-  .heading-content {
+  .content {
     flex: 1;
   }
 
-  h2 {
+  .number {
     margin: 0;
+    color: #3b82f6;
+    font-family: monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
+
+  h2 {
+    margin: 0.35rem 0 0;
     color: #f8fafc;
     font-size: 2rem;
     font-weight: 700;
   }
 
-  .subtitle {
-    margin-top: 0.75rem;
+  .description {
+    margin-top: 1rem;
     color: #94a3b8;
-    line-height: 1.7;
-    max-width: 700px;
+    max-width: 760px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.75rem;
+    }
   }
 </style>
