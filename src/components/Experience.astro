@@ -157,10 +157,10 @@ import SectionHeading from "./ui/SectionHeading.astro";
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
 
-    background: rgba(59, 130, 246, 0.12);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    background: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
 
-    color: #60a5fa;
+    color: var(--accent-light);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -168,8 +168,8 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .timeline-content {
-    background: #101b2b;
-    border: 1px solid #223449;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 18px;
     padding: 2.5rem;
 
@@ -180,15 +180,15 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .timeline-content:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 16px 40px rgba(59, 130, 246, 0.18);
+    border-color: var(--accent);
+    box-shadow: 0 16px 40px rgba(var(--accent-rgb), 0.18);
     transform: translateY(-3px);
   }
 
   .timeline-content h3 {
     margin: 0;
 
-    color: #f8fafc;
+    color: var(--text);
     font-size: 1.65rem;
     font-weight: 700;
   }
@@ -196,7 +196,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
   .company {
     margin: 0.75rem 0 2rem;
 
-    color: #60a5fa;
+    color: var(--accent-light);
     font-weight: 600;
   }
 
@@ -204,7 +204,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
     max-width: 70ch;
     margin-bottom: 2rem;
 
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.8;
   }
 
@@ -221,7 +221,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
     margin-bottom: 0.8rem;
     padding-left: 1.4rem;
 
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.8;
   }
 
@@ -230,7 +230,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
     position: absolute;
     left: 0;
 
-    color: #3b82f6;
+    color: var(--accent);
     font-weight: 700;
   }
 
@@ -243,11 +243,11 @@ import SectionHeading from "./ui/SectionHeading.astro";
   .tech-stack span {
     padding: 0.45rem 0.9rem;
 
-    background: rgba(59, 130, 246, 0.12);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    background: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
     border-radius: 999px;
 
-    color: #60a5fa;
+    color: var(--accent-light);
     font-size: 0.85rem;
     font-weight: 600;
 
@@ -255,9 +255,9 @@ import SectionHeading from "./ui/SectionHeading.astro";
   }
 
   .tech-stack span:hover {
-    background: rgba(59, 130, 246, 0.2);
-    border-color: #3b82f6;
-    color: #93c5fd;
+    background: rgba(var(--accent-rgb), 0.2);
+    border-color: var(--accent);
+    color: var(--accent-lighter);
   }
 
   @media (max-width: 768px) {

@@ -17,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
 
     <a
       class="download-btn"
-      href="public/images/Justin_Hoffmann_Resume_July2026.pdf"
+      href="/Justin_Hoffmann_Resume_July2026.pdf"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -143,7 +143,7 @@ import Layout from "../layouts/Layout.astro";
   .intro {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
   }
 
@@ -151,7 +151,7 @@ import Layout from "../layouts/Layout.astro";
     display: inline-block;
     margin-bottom: 3rem;
     padding: 0.85rem 1.6rem;
-    background: #2563eb;
+    background: var(--accent-dark);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -160,7 +160,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .download-btn:hover {
-    background: #1d4ed8;
+    background: var(--accent-darker);
   }
 
   .job {
@@ -172,7 +172,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .job-title {
-    color: #94a3b8;
+    color: var(--text-muted);
     margin-bottom: 1rem;
     font-weight: 500;
   }
@@ -194,12 +194,12 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .skills span {
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
     padding: 0.6rem 1rem;
     border-radius: 999px;
     font-size: 0.95rem;
-    color: #f8fafc;
+    color: var(--text);
   }
 
   .certifications {
@@ -214,23 +214,23 @@ import Layout from "../layouts/Layout.astro";
     margin-top: 4rem;
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #334155;
+    border-top: 1px solid var(--border-strong);
   }
 
   .projects-button {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.85rem 1.6rem;
-    border: 1px solid #2563eb;
+    border: 1px solid var(--accent-dark);
     border-radius: 8px;
-    color: #60a5fa;
+    color: var(--accent-light);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s ease;
   }
 
   .projects-button:hover {
-    background: #2563eb;
+    background: var(--accent-dark);
     color: white;
   }
 </style>

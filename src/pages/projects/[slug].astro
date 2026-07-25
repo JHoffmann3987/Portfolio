@@ -1,0 +1,150 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Justin Hoffmann`}>
+  <section class="project">
+    <h1>{project.emoji} {project.title}</h1>
+
+    <p class="subtitle">{project.description}</p>
+
+    <div class="tech-list">
+      {project.techList.map((tech) => <span>{tech}</span>)}
+    </div>
+
+    <h2>Overview</h2>
+
+    {project.overview.map((paragraph) => <p>{paragraph}</p>)}
+
+    {
+      project.architecture && (
+        <>
+          <h2>Architecture</h2>
+          <div class="architecture">{project.architecture}</div>
+        </>
+      )
+    }
+
+    <h2>Technologies Used</h2>
+
+    <ul>
+      {project.technologies.map((tech) => <li>{tech}</li>)}
+    </ul>
+
+    <h2>Highlights</h2>
+
+    <ul>
+      {project.detailHighlights.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>Challenges</h2>
+
+    <ul>
+      {project.challenges.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>What I Learned</h2>
+
+    <p>{project.learned}</p>
+
+    <div class="gallery">
+      <h2>Gallery</h2>
+
+      <p>Screenshots of the environment will be added as the project continues to evolve.</p>
+    </div>
+
+    <a href="/projects" class="back-link">← Back to all projects</a>
+  </section>
+</Layout>
+
+<style>
+  .project {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 2rem;
+  }
+
+  .project h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .tech-list span {
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+
+  .project h2 {
+    margin-top: 3rem;
+    color: var(--text);
+  }
+
+  .project p,
+  .project li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .project ul {
+    padding-left: 1.25rem;
+  }
+
+  .architecture {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+    color: var(--text-secondary);
+  }
+
+  .gallery {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-strong);
+    padding-top: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 3rem;
+    color: var(--accent-light);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--accent-lighter);
+  }
+</style>

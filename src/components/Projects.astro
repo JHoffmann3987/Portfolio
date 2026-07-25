@@ -1,56 +1,7 @@
 ---
 import SectionHeading from "./ui/SectionHeading.astro";
 import Badge from "./ui/Badge.astro";
-
-const projects = [
-  {
-    category: "Infrastructure",
-    title: "Proxmox Home Lab",
-    href: "/projects/proxmox-homelab",
-    description:
-      "Built and maintain a Proxmox virtualization environment to gain hands-on experience with enterprise infrastructure, virtualization, Linux administration, storage, networking, and self-hosted services. This environment serves as the foundation for all of my home lab projects.",
-    highlights: [
-      "Virtual Machines & LXC Containers",
-      "Shared SMB Storage",
-      "Docker Integration",
-      "Snapshots & Backups",
-      "Linux Administration",
-    ],
-    tags: ["Proxmox VE", "Docker", "Ubuntu", "Linux", "Networking"],
-  },
-
-  {
-    category: "Self Hosting",
-    title: "Docker Services",
-    href: "/projects/docker-services",
-    description:
-      "Designed and deployed multiple Docker services to improve monitoring, media management, password security, and overall reliability while learning containerized application deployment.",
-    highlights: [
-      "Homepage Dashboard",
-      "Jellyfin",
-      "Vaultwarden",
-      "Uptime Kuma",
-      "Nginx Proxy Manager",
-    ],
-    tags: ["Docker", "Docker Compose", "Linux", "Reverse Proxy", "Monitoring"],
-  },
-
-  {
-    category: "Administration",
-    title: "Microsoft 365 Administration",
-    href: "/projects/microsoft-365",
-    description:
-      "Provide daily administration and support for Microsoft 365 environments in a Managed Service Provider (MSP) setting, helping business clients manage identities, licensing, Exchange Online, and security.",
-    highlights: [
-      "Exchange Online",
-      "Entra ID",
-      "Microsoft 365 Licensing",
-      "Multi-Factor Authentication",
-      "User Provisioning",
-    ],
-    tags: ["Microsoft 365", "Exchange", "Entra ID", "PowerShell"],
-  },
-];
+import { projects } from "../data/projects";
 ---
 
 <section id="projects" class="projects">
@@ -63,7 +14,7 @@ const projects = [
   <div class="project-list">
     {
       projects.map((project) => (
-        <a href={project.href} class="project-card">
+        <a href={`/projects/${project.slug}`} class="project-card">
           <div class="project-header">
             <div>
               <p class="overline">{project.category}</p>
@@ -109,8 +60,8 @@ const projects = [
     display: block;
     text-decoration: none;
 
-    background: #112240;
-    border: 1px solid #233554;
+    background: var(--surface-card);
+    border: 1px solid var(--border-alt);
     border-radius: 14px;
 
     padding: 2rem;
@@ -120,8 +71,8 @@ const projects = [
 
   .project-card:hover {
     transform: translateY(-6px);
-    border-color: #3b82f6;
-    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.15);
   }
 
   .project-header {
@@ -133,7 +84,7 @@ const projects = [
   }
 
   .overline {
-    color: #3b82f6;
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.8rem;
@@ -143,12 +94,12 @@ const projects = [
 
   .project-header h3 {
     margin: 0;
-    color: #f8fafc;
+    color: var(--text);
     font-size: 1.7rem;
   }
 
   .arrow {
-    color: #3b82f6;
+    color: var(--accent);
     font-size: 2rem;
     transition: transform 0.25s ease;
   }
@@ -158,13 +109,13 @@ const projects = [
   }
 
   .description {
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 1.5rem;
   }
 
   .highlights {
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.8;
     margin: 0 0 2rem 1.25rem;
   }
@@ -181,13 +132,13 @@ const projects = [
 
   .view-project {
     margin-top: 2rem;
-    color: #60a5fa;
+    color: var(--accent-light);
     font-weight: 600;
     transition: color 0.2s ease;
   }
 
   .project-card:hover .view-project {
-    color: #93c5fd;
+    color: var(--accent-lighter);
   }
 
   @media (max-width: 768px) {

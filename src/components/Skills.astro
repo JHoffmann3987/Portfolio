@@ -142,8 +142,8 @@ const skillGroups = [
   }
 
   .skill-card {
-    background: #112240;
-    border: 1px solid #233554;
+    background: var(--surface-card);
+    border: 1px solid var(--border-alt);
     border-radius: 14px;
     padding: 2rem;
     transition: all 0.25s ease;
@@ -151,18 +151,18 @@ const skillGroups = [
 
   .skill-card:hover {
     transform: translateY(-6px);
-    border-color: #3b82f6;
-    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.15);
   }
 
   .skill-card h3 {
     margin: 0 0 1rem;
-    color: #f8fafc;
+    color: var(--text);
     font-size: 1.3rem;
   }
 
   .card-description {
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 1.75rem;
   }
