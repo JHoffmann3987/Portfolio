@@ -1,135 +1,132 @@
-<section id="skills" class="skills">
-  <div class="section-heading">
-    <span class="line"></span>
-    <h2>Skills & Technologies</h2>
-  </div>
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import Badge from "./ui/Badge.astro";
 
-  <p class="intro">
-    My technical experience comes from supporting business clients in a Managed
-    Service Provider (MSP) environment while continuously expanding my knowledge
-    through hands-on home lab projects and self-hosted infrastructure.
-  </p>
+const skillGroups = [
+  {
+    title: "Microsoft 365 & Identity",
+    description:
+      "Daily administration of Microsoft 365 environments while supporting business clients in a Managed Service Provider (MSP) environment.",
+    skills: [
+      "Microsoft 365",
+      "Exchange Online",
+      "Entra ID",
+      "Intune",
+      "Azure Fundamentals",
+      "MFA",
+      "User Management",
+    ],
+  },
+
+  {
+    title: "Windows & Active Directory",
+    description:
+      "Supporting Windows workstations and servers, managing users, permissions, and core infrastructure services.",
+    skills: [
+      "Windows 11",
+      "Windows Server",
+      "Active Directory",
+      "Group Policy",
+      "DNS",
+      "DHCP",
+    ],
+  },
+
+  {
+    title: "Virtualization",
+    description:
+      "Building and maintaining a Proxmox home lab to gain experience with enterprise virtualization and infrastructure.",
+    skills: [
+      "Proxmox VE",
+      "Virtual Machines",
+      "LXC Containers",
+      "Snapshots",
+      "Storage",
+      "Backups",
+    ],
+  },
+
+  {
+    title: "Linux & Docker",
+    description:
+      "Deploying and maintaining self-hosted services using Docker while improving Linux administration skills.",
+    skills: [
+      "Ubuntu Server",
+      "Docker",
+      "Docker Compose",
+      "Linux CLI",
+      "Nginx Proxy Manager",
+      "Jellyfin",
+      "Uptime Kuma",
+    ],
+  },
+
+  {
+    title: "Networking",
+    description:
+      "Building and troubleshooting small business and home lab networks while learning enterprise networking concepts.",
+    skills: ["TCP/IP", "VLANs", "DNS", "DHCP", "VPN", "SonicWall"],
+  },
+
+  {
+    title: "Security",
+    description:
+      "Supporting endpoint protection, identity security, and email security platforms used by business clients.",
+    skills: [
+      "SentinelOne",
+      "Huntress",
+      "Guardz",
+      "Barracuda",
+      "Endpoint Protection",
+    ],
+  },
+
+  {
+    title: "Automation & Development",
+    description:
+      "Writing scripts and using version control to automate repetitive tasks and document infrastructure projects.",
+    skills: ["PowerShell", "Git", "GitHub", "VS Code", "Scripting"],
+  },
+
+  {
+    title: "IT Operations",
+    description:
+      "Providing technical support, documentation, remote troubleshooting, and endpoint management in an MSP environment.",
+    skills: [
+      "NinjaOne",
+      "Remote Support",
+      "Hardware Troubleshooting",
+      "Software Deployment",
+      "Documentation",
+      "Customer Support",
+    ],
+  },
+];
+---
+
+<section id="skills" class="skills">
+  <SectionHeading
+    number="04."
+    title="Skills & Technologies"
+    description="My technical experience comes from supporting business clients in a Managed Service Provider (MSP) environment while continuously expanding my knowledge through hands-on home lab projects and self-hosted infrastructure."
+  />
 
   <div class="skills-grid">
-    <!-- Microsoft -->
+    {
+      skillGroups.map((group) => (
+        <div class="skill-card">
+          <h3>{group.title}</h3>
 
-    <div class="skill-card">
-      <h3>Microsoft 365 & Identity</h3>
+          <p class="card-description">{group.description}</p>
 
-      <div class="badges">
-        <span>Microsoft 365</span>
-        <span>Exchange Online</span>
-        <span>Entra ID</span>
-        <span>Intune</span>
-        <span>Azure Fundamentals</span>
-        <span>MFA</span>
-        <span>User Management</span>
-      </div>
-    </div>
-
-    <!-- Windows -->
-
-    <div class="skill-card">
-      <h3>Windows & Active Directory</h3>
-
-      <div class="badges">
-        <span>Windows</span>
-        <span>Windows Server</span>
-        <span>Active Directory</span>
-        <span>Group Policy</span>
-        <span>DNS</span>
-        <span>DHCP</span>
-      </div>
-    </div>
-
-    <!-- Virtualization -->
-
-    <div class="skill-card">
-      <h3>Virtualization</h3>
-
-      <div class="badges">
-        <span>Proxmox VE</span>
-        <span>Virtual Machines</span>
-        <span>LXC Containers</span>
-        <span>Snapshots</span>
-        <span>Storage</span>
-        <span>Backups</span>
-      </div>
-    </div>
-
-    <!-- Linux -->
-
-    <div class="skill-card">
-      <h3>Linux & Docker</h3>
-
-      <div class="badges">
-        <span>Ubuntu Server</span>
-        <span>Docker</span>
-        <span>Docker Compose</span>
-        <span>Linux CLI</span>
-        <span>Nginx Proxy Manager</span>
-        <span>Jellyfin</span>
-        <span>Uptime Kuma</span>
-      </div>
-    </div>
-
-    <!-- Networking -->
-
-    <div class="skill-card">
-      <h3>Networking</h3>
-
-      <div class="badges">
-        <span>TCP/IP</span>
-        <span>VLANs</span>
-        <span>DNS</span>
-        <span>DHCP</span>
-        <span>VPN</span>
-        <span>SonicWall</span>
-      </div>
-    </div>
-
-    <!-- Security -->
-
-    <div class="skill-card">
-      <h3>Security</h3>
-
-      <div class="badges">
-        <span>SentinelOne</span>
-        <span>Huntress</span>
-        <span>Guardz</span>
-        <span>Barracuda</span>
-        <span>Endpoint Protection</span>
-      </div>
-    </div>
-
-    <!-- Development -->
-
-    <div class="skill-card">
-      <h3>Development & Automation</h3>
-
-      <div class="badges">
-        <span>PowerShell</span>
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>VS Code</span>
-        <span>Scripting</span>
-      </div>
-    </div>
-
-    <!-- IT Operations -->
-
-    <div class="skill-card">
-      <h3>IT Operations</h3>
-
-      <div class="badges">
-        <span>NinjaOne</span>
-        <span>Remote Troubleshooting</span>
-        <span>Hardware Support</span>
-        <span>Software Deployment</span>
-        <span>Documentation</span>
-        <span>Customer Support</span>
-      </div>
-    </div>
+          <div class="badges">
+            {group.skills.map((skill) => (
+              <Badge>{skill}</Badge>
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </div>
 </section>
 
@@ -138,35 +135,9 @@
     padding: 8rem 0;
   }
 
-  .section-heading {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .line {
-    width: 60px;
-    height: 2px;
-    background: #3b82f6;
-  }
-
-  .section-heading h2 {
-    color: #f8fafc;
-    font-size: 2rem;
-  }
-
-  .intro {
-    color: #94a3b8;
-    line-height: 1.9;
-    max-width: 760px;
-    font-size: 1.05rem;
-    margin-bottom: 3rem;
-  }
-
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
   }
 
@@ -181,35 +152,25 @@
   .skill-card:hover {
     transform: translateY(-6px);
     border-color: #3b82f6;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
   }
 
   .skill-card h3 {
+    margin: 0 0 1rem;
     color: #f8fafc;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .card-description {
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
   }
 
   .badges {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-  }
-
-  .badges span {
-    background: rgba(59, 130, 246, 0.12);
-    color: #60a5fa;
-    border: 1px solid rgba(59, 130, 246, 0.18);
-    padding: 0.45rem 0.9rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-  }
-
-  .badges span:hover {
-    background: rgba(59, 130, 246, 0.2);
-    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
