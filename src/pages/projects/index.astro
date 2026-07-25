@@ -1,64 +1,108 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-import Sidebar from "../components/Sidebar.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Experience from "../components/Experience.astro";
-import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
-import Contact from "../components/Contact.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="page">
-    <aside>
-      <Sidebar />
-    </aside>
+  <section class="projects-page">
+    <h1>Projects</h1>
 
-    <main>
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </main>
-  </div>
+    <p class="intro">
+      A collection of home lab, infrastructure, and automation projects I've
+      built to strengthen my IT skills.
+    </p>
+
+    <div class="project-grid">
+      <a href="/projects/proxmox-homelab" class="project-card">
+        <h2>Proxmox Home Lab</h2>
+        <p>
+          Building and maintaining a virtualization environment using Proxmox,
+          Linux containers, virtual machines, and Docker services.
+        </p>
+      </a>
+
+      <a href="/projects/docker-services" class="project-card">
+        <h2>Docker Services</h2>
+        <p>
+          Self-hosted services including Jellyfin, Homepage, Uptime Kuma,
+          Vaultwarden, and more.
+        </p>
+      </a>
+
+      <a href="/projects/networking-lab" class="project-card">
+        <h2>Networking Lab</h2>
+        <p>
+          VLANs, managed switches, routing, DNS, and firewall configuration
+          using enterprise networking equipment.
+        </p>
+      </a>
+
+      <a href="/projects/microsoft-365" class="project-card">
+        <h2>Microsoft 365</h2>
+        <p>
+          Hands-on experience with Microsoft 365 administration, Entra ID,
+          Exchange Online, Intune, and endpoint management.
+        </p>
+      </a>
+
+      <a href="/projects/powershell-automation" class="project-card">
+        <h2>PowerShell Automation</h2>
+        <p>
+          Scripts for network discovery, administration, automation, and
+          everyday IT support tasks.
+        </p>
+      </a>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .page {
-    max-width: 1400px;
+  .projects-page {
+    max-width: 1100px;
     margin: 0 auto;
-
-    display: flex;
-    align-items: flex-start;
+    padding: 4rem 2rem;
   }
 
-  aside {
-    width: 420px;
-    flex-shrink: 0;
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #f8fafc;
   }
 
-  main {
-    flex: 1;
-    min-width: 0;
-
-    padding: 4rem 2rem 6rem;
+  .intro {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 3rem;
   }
 
-  @media (max-width: 900px) {
-    .page {
-      display: block;
-    }
+  .project-grid {
+    display: grid;
+    gap: 2rem;
+  }
 
-    aside {
-      width: 100%;
-    }
+  .project-card {
+    display: block;
+    padding: 2rem;
+    border: 1px solid #233554;
+    border-radius: 12px;
+    background: #112240;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
 
-    main {
-      padding: 2rem;
-    }
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: #3b82f6;
+  }
+
+  .project-card h2 {
+    color: #f8fafc;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card p {
+    color: #94a3b8;
+    line-height: 1.7;
   }
 </style>
