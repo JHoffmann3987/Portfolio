@@ -2,35 +2,46 @@
   <p class="eyebrow">Hi, I'm Justin.</p>
 
   <h1>
-    Hands-on infrastructure.<br />
-    Real-world IT.<br />
-    Continuous learning.
+    Building Reliable<br />
+    IT Infrastructure.
   </h1>
 
   <div class="description">
     <p>
       I'm an IT Support Technician working in a Managed Service Provider (MSP)
-      environment, where I help businesses support and maintain their IT
-      infrastructure.
+      environment, supporting Microsoft 365, Windows, identity management,
+      endpoint security, and day-to-day IT operations for business clients.
     </p>
 
     <p>
-      Outside of work, I build and document home lab projects to strengthen my
-      skills with Microsoft 365, Linux, Proxmox, Docker, networking,
-      virtualization, PowerShell, and automation.
+      Outside of work, I build and maintain a Proxmox home lab where I continue
+      learning Linux, Docker, virtualization, networking, PowerShell, and
+      enterprise infrastructure through hands-on projects.
     </p>
+  </div>
+
+  <div class="hero-buttons">
+    <a
+      class="primary"
+      href="/Justin_Hoffmann_Resume_July2026.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View Resume
+    </a>
+
+    <a class="secondary" href="#projects"> View Projects </a>
   </div>
 </section>
 
 <style>
   .hero {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    max-width: 640px;
+    max-width: 700px;
 
     padding: 2rem 0;
   }
@@ -44,22 +55,25 @@
     font-size: 0.85rem;
     font-weight: 700;
 
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .hero h1 {
-    font-size: clamp(3.8rem, 7vw, 5.5rem);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-
     color: #f8fafc;
 
-    margin-bottom: 2.5rem;
+    font-size: clamp(3rem, 5vw, 4.4rem);
+
+    line-height: 1.02;
+
+    letter-spacing: -0.04em;
+
+    margin: 0 0 2rem;
   }
 
   .description {
     display: flex;
     flex-direction: column;
+
     gap: 1.5rem;
 
     max-width: 620px;
@@ -67,25 +81,81 @@
     color: #94a3b8;
 
     font-size: 1.1rem;
+
     line-height: 1.9;
+
+    margin-bottom: 2.5rem;
   }
 
   .description p {
     margin: 0;
   }
 
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .primary,
+  .secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.9rem 1.6rem;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+  }
+
+  .primary {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+
+  .primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+  }
+
+  .secondary {
+    border: 1px solid #3b82f6;
+    color: #60a5fa;
+    background: transparent;
+  }
+
+  .secondary:hover {
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+  }
+
   @media (max-width: 900px) {
     .hero {
       min-height: auto;
-      padding: 3rem 0;
+      padding: 4rem 0;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 10vw, 4.5rem);
+      font-size: clamp(2.6rem, 8vw, 3.8rem);
     }
 
     .description {
       font-size: 1rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+
+    .primary,
+    .secondary {
+      width: 100%;
     }
   }
 </style>

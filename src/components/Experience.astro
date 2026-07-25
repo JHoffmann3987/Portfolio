@@ -1,12 +1,9 @@
-<section id="experience" class="experience">
-  <div class="section-heading">
-    <span class="line"></span>
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+---
 
-    <div>
-      <p class="section-number">02.</p>
-      <h2>Experience</h2>
-    </div>
-  </div>
+<section id="experience" class="experience">
+  <SectionHeading title="Experience" />
 
   <div class="timeline">
     <article class="timeline-item">
@@ -153,36 +150,6 @@
     padding: 8rem 0;
   }
 
-  .section-heading {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .line {
-    width: 60px;
-    height: 2px;
-    background: #3b82f6;
-    margin-top: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .section-number {
-    margin: 0;
-    color: #3b82f6;
-    font-family: monospace;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-  }
-
-  .section-heading h2 {
-    margin: 0.35rem 0 0;
-    color: #f8fafc;
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
   .timeline {
     display: flex;
     flex-direction: column;
@@ -268,17 +235,23 @@
       padding: 5rem 0;
     }
 
-    .timeline-item {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
+.timeline-date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(59,130,246,.12);
+  border: 1px solid rgba(59,130,246,.25);
+  color: #60a5fa;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
     .timeline-date {
       padding-top: 0;
     }
 
-    .section-heading h2 {
-      font-size: 1.75rem;
-    }
-  }
 </style>

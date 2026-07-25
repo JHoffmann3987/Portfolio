@@ -1,108 +1,74 @@
-<section id="about" class="about">
-  <div class="section-heading">
-    <span class="line"></span>
-    <div>
-      <p class="section-number">01.</p>
-      <h2>About Me</h2>
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+---
+
+<SectionHeading title="About Me" />
+
+<div class="about-content">
+  <p>
+    I'm an <strong>IT Support Technician</strong> working in a Managed Service Provider
+    (MSP) environment, where I help business clients troubleshoot Windows systems,
+    administer Microsoft 365 environments, manage user identities, and support endpoint
+    security and networking. Every day brings a different challenge, which is one
+    of the things I enjoy most about IT.
+  </p>
+
+  <p>
+    Outside of work, I spend much of my time building and improving my
+    <strong>home lab</strong>. It's where I experiment with virtualization,
+    Linux, Docker, networking, and infrastructure technologies before applying
+    what I learn in real-world environments. Building systems from the ground up
+    has become my favorite way to learn and continually improve my skills.
+  </p>
+
+  <p>
+    I'm passionate about creating reliable, well-documented infrastructure and
+    automating repetitive tasks whenever possible. My long-term goal is to grow
+    into a <strong>Systems Administrator</strong> or
+    <strong>Infrastructure Engineer</strong>, with a focus on Microsoft 365,
+    virtualization, networking, and cloud technologies.
+  </p>
+
+  <div class="tech-grid">
+    <div class="tech-column">
+      <h3>Professional Experience</h3>
+
+      <ul>
+        <li>Microsoft 365 Administration</li>
+        <li>Exchange Online</li>
+        <li>Entra ID</li>
+        <li>Active Directory</li>
+        <li>NinjaOne RMM</li>
+        <li>SentinelOne</li>
+        <li>Guardz</li>
+        <li>Barracuda</li>
+        <li>Huntress</li>
+        <li>SonicWall Firewalls</li>
+      </ul>
+    </div>
+
+    <div class="tech-column">
+      <h3>Home Lab & Learning</h3>
+
+      <ul>
+        <li>Proxmox VE</li>
+        <li>Docker & Docker Compose</li>
+        <li>Ubuntu Server</li>
+        <li>Linux Administration</li>
+        <li>PowerShell Scripting</li>
+        <li>Networking & VLANs</li>
+        <li>Nginx Proxy Manager</li>
+        <li>Jellyfin Media Server</li>
+        <li>Homepage Dashboard</li>
+        <li>Uptime Kuma Monitoring</li>
+      </ul>
     </div>
   </div>
-
-  <div class="about-content">
-    <p>
-      I'm an <strong>IT Support Technician</strong> working in a Managed Service Provider
-      (MSP) environment, where I help business clients troubleshoot Windows systems,
-      administer Microsoft 365 environments, manage user identities, and support endpoint
-      security and networking. Every day brings a different challenge, which is one
-      of the things I enjoy most about IT.
-    </p>
-
-    <p>
-      Outside of work, I spend much of my time building and improving my
-      <strong>home lab</strong>. It's where I experiment with virtualization,
-      Linux, Docker, networking, and infrastructure technologies before applying
-      what I learn in real-world environments. Building systems from the ground
-      up has become my favorite way to learn and continually improve my skills.
-    </p>
-
-    <p>
-      I'm passionate about creating reliable, well-documented infrastructure and
-      automating repetitive tasks whenever possible. My long-term goal is to
-      grow into a <strong>Systems Administrator</strong> or
-      <strong>Infrastructure Engineer</strong>, with a focus on Microsoft 365,
-      virtualization, networking, and cloud technologies.
-    </p>
-
-    <div class="tech-grid">
-      <div class="tech-column">
-        <h3>Professional Experience</h3>
-
-        <ul>
-          <li>Microsoft 365 Administration</li>
-          <li>Exchange Online</li>
-          <li>Entra ID</li>
-          <li>Active Directory</li>
-          <li>NinjaOne RMM</li>
-          <li>SentinelOne</li>
-          <li>Guardz</li>
-          <li>Barracuda</li>
-          <li>Huntress</li>
-          <li>SonicWall Firewalls</li>
-        </ul>
-      </div>
-
-      <div class="tech-column">
-        <h3>Home Lab & Learning</h3>
-
-        <ul>
-          <li>Proxmox VE</li>
-          <li>Docker & Docker Compose</li>
-          <li>Ubuntu Server</li>
-          <li>Linux Administration</li>
-          <li>PowerShell Scripting</li>
-          <li>Networking & VLANs</li>
-          <li>Nginx Proxy Manager</li>
-          <li>Jellyfin Media Server</li>
-          <li>Homepage Dashboard</li>
-          <li>Uptime Kuma Monitoring</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <style>
   .about {
     padding: 8rem 0;
-  }
-
-  .section-heading {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .line {
-    width: 60px;
-    height: 2px;
-    background: #3b82f6;
-    margin-top: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .section-number {
-    margin: 0;
-    color: #3b82f6;
-    font-family: monospace;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-  }
-
-  .section-heading h2 {
-    margin: 0.35rem 0 0;
-    font-size: 2rem;
-    color: #f8fafc;
-    font-weight: 700;
   }
 
   .about-content {
@@ -173,10 +139,6 @@
   @media (max-width: 768px) {
     .about {
       padding: 5rem 0;
-    }
-
-    .section-heading h2 {
-      font-size: 1.75rem;
     }
 
     .tech-grid {
