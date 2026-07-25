@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import Sidebar from "../components/Sidebar.astro";
-
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
@@ -12,45 +11,50 @@ import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
-  <div class="wrapper">
-    <Sidebar />
+  <div class="page">
+    <aside>
+      <Sidebar />
+    </aside>
 
     <main>
       <Hero />
-
       <About />
-
       <Experience />
-
       <Projects />
-
       <Skills />
-
       <Contact />
     </main>
   </div>
 </Layout>
 
 <style>
-  .wrapper {
+  .page {
     max-width: 1400px;
+    margin: 0 auto;
 
-    margin: auto;
+    display: flex;
+    align-items: flex-start;
+  }
 
-    display: grid;
-
-    grid-template-columns: 420px 1fr;
-
-    gap: 4rem;
+  aside {
+    width: 420px;
+    flex-shrink: 0;
   }
 
   main {
+    flex: 1;
+    min-width: 0;
+
     padding: 4rem 2rem 6rem;
   }
 
   @media (max-width: 900px) {
-    .wrapper {
+    .page {
       display: block;
+    }
+
+    aside {
+      width: 100%;
     }
 
     main {

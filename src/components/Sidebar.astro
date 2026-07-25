@@ -2,11 +2,14 @@
   <div class="intro">
     <h1>Justin Hoffmann</h1>
 
-    <h2>IT Support Technician</h2>
+    <h2>
+      IT Support Technician
+      <span>Microsoft 365 · Infrastructure · Home Lab</span>
+    </h2>
 
     <p>
-      Building reliable IT infrastructure through hands-on learning, home lab
-      projects, and real-world experience.
+      Building practical IT skills through real-world support experience and
+      hands-on home lab projects.
     </p>
   </div>
 
@@ -46,7 +49,13 @@
       GitHub
     </a>
 
-    <a href="/Justin_Hoffmann_Resume.pdf" target="_blank"> Resume </a>
+    <a
+      href="/Justin_Hoffmann_Resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Resume
+    </a>
   </div>
 </aside>
 
@@ -61,19 +70,24 @@
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .intro h1 {
-    font-size: 2.6rem;
+    font-size: 2.75rem;
     font-weight: 800;
+    line-height: 1.05;
 
     color: #f8fafc;
 
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .intro h2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
     font-size: 1.2rem;
     font-weight: 600;
 
@@ -82,88 +96,86 @@
     margin-bottom: 2rem;
   }
 
+  .intro h2 span {
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    color: #94a3b8;
+  }
+
   .intro p {
-    max-width: 290px;
+    max-width: 300px;
 
     color: #94a3b8;
 
-    line-height: 1.9;
-
-    font-size: 1rem;
+    line-height: 1.8;
   }
 
   .nav {
     display: flex;
     flex-direction: column;
-
-    gap: 1.25rem;
+    gap: 1.3rem;
   }
 
   .nav a {
     display: flex;
     align-items: center;
-
     gap: 1rem;
 
     color: #94a3b8;
 
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
 
-    transition: 0.25s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    transition: color 0.25s ease;
   }
 
   .nav span {
-    width: 35px;
+    width: 40px;
     height: 1px;
 
     background: #475569;
 
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
   }
 
   .nav a:hover {
-    color: white;
+    color: #f8fafc;
   }
 
   .nav a:hover span {
-    width: 70px;
-
-    background: white;
+    width: 72px;
+    background: #3b82f6;
   }
 
   .social {
     display: flex;
-
     gap: 1.5rem;
   }
 
   .social a {
     color: #94a3b8;
-
-    transition: 0.2s;
+    transition: color 0.2s ease;
   }
 
   .social a:hover {
-    color: white;
+    color: #f8fafc;
   }
 
   @media (max-width: 900px) {
     .sidebar {
       position: relative;
-
       height: auto;
-
       padding: 2rem;
     }
 
     .nav {
-      margin: 3rem 0;
-
       flex-direction: row;
-
       flex-wrap: wrap;
+      margin: 2rem 0;
     }
 
     .nav span {

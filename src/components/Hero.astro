@@ -1,48 +1,91 @@
-<section class="hero">
+<section class="hero" id="hero">
   <p class="eyebrow">Hi, I'm Justin.</p>
 
-  <h1>Building reliable IT infrastructure.</h1>
+  <h1>
+    Hands-on infrastructure.<br />
+    Real-world IT.<br />
+    Continuous learning.
+  </h1>
 
-  <p class="description">
-    I enjoy solving technical problems through hands-on experience with
-    Microsoft 365, Linux, Docker, Proxmox, networking, PowerShell, and
-    enterprise technologies. My home lab allows me to continuously learn,
-    document, and improve my skills outside of the workplace.
-  </p>
+  <div class="description">
+    <p>
+      I'm an IT Support Technician working in a Managed Service Provider (MSP)
+      environment, where I help businesses support and maintain their IT
+      infrastructure.
+    </p>
+
+    <p>
+      Outside of work, I build and document home lab projects to strengthen my
+      skills with Microsoft 365, Linux, Proxmox, Docker, networking,
+      virtualization, PowerShell, and automation.
+    </p>
+  </div>
 </section>
 
 <style>
   .hero {
-    padding-top: 8rem;
+    min-height: 100vh;
 
-    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 640px;
+
+    padding: 2rem 0;
   }
 
   .eyebrow {
     color: #3b82f6;
 
-    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
 
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    margin-bottom: 1.5rem;
   }
 
   .hero h1 {
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-size: clamp(3.8rem, 7vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
 
-    line-height: 1.05;
+    color: #f8fafc;
 
-    max-width: 700px;
-
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .description {
-    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
-    line-height: 1.9;
-
-    font-size: 1.1rem;
+    max-width: 620px;
 
     color: #94a3b8;
+
+    font-size: 1.1rem;
+    line-height: 1.9;
+  }
+
+  .description p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding: 3rem 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+
+    .description {
+      font-size: 1rem;
+    }
   }
 </style>
