@@ -1,32 +1,35 @@
 <section id="about" class="about">
   <div class="section-heading">
     <span class="line"></span>
-    <h2>About</h2>
+    <div>
+      <p class="section-number">01.</p>
+      <h2>About Me</h2>
+    </div>
   </div>
 
   <div class="about-content">
     <p>
       I'm an <strong>IT Support Technician</strong> working in a Managed Service Provider
-      (MSP) environment, where I provide technical support to business clients across
-      a wide range of technologies. My day-to-day work includes troubleshooting Windows
-      systems, administering Microsoft 365, managing user identities, supporting endpoint
-      security, and resolving networking issues.
+      (MSP) environment, where I help business clients troubleshoot Windows systems,
+      administer Microsoft 365 environments, manage user identities, and support endpoint
+      security and networking. Every day brings a different challenge, which is one
+      of the things I enjoy most about IT.
     </p>
 
     <p>
-      Outside of work, I maintain a home lab that serves as both a learning
-      environment and a place to experiment with enterprise technologies.
-      Building real systems has become my favorite way to learn. Every project
-      in this portfolio was designed, deployed, documented, and maintained by
-      me.
+      Outside of work, I spend much of my time building and improving my
+      <strong>home lab</strong>. It's where I experiment with virtualization,
+      Linux, Docker, networking, and infrastructure technologies before applying
+      what I learn in real-world environments. Building systems from the ground
+      up has become my favorite way to learn and continually improve my skills.
     </p>
 
     <p>
-      I enjoy solving technical problems, automating repetitive tasks, and
-      continuously expanding my knowledge of infrastructure, virtualization,
-      Linux, networking, and cloud technologies. My goal is to continue growing
-      into a Systems Administrator or Infrastructure Engineer while building
-      solutions that are reliable, secure, and easy to maintain.
+      I'm passionate about creating reliable, well-documented infrastructure and
+      automating repetitive tasks whenever possible. My long-term goal is to
+      grow into a <strong>Systems Administrator</strong> or
+      <strong>Infrastructure Engineer</strong>, with a focus on Microsoft 365,
+      virtualization, networking, and cloud technologies.
     </p>
 
     <div class="tech-grid">
@@ -34,33 +37,33 @@
         <h3>Professional Experience</h3>
 
         <ul>
-          <li>Microsoft 365</li>
+          <li>Microsoft 365 Administration</li>
           <li>Exchange Online</li>
           <li>Entra ID</li>
           <li>Active Directory</li>
-          <li>NinjaOne</li>
+          <li>NinjaOne RMM</li>
           <li>SentinelOne</li>
           <li>Guardz</li>
           <li>Barracuda</li>
           <li>Huntress</li>
-          <li>SonicWall</li>
+          <li>SonicWall Firewalls</li>
         </ul>
       </div>
 
       <div class="tech-column">
-        <h3>Home Lab</h3>
+        <h3>Home Lab & Learning</h3>
 
         <ul>
           <li>Proxmox VE</li>
-          <li>Docker</li>
-          <li>Linux</li>
-          <li>PowerShell</li>
-          <li>Networking</li>
-          <li>Virtualization</li>
-          <li>Jellyfin</li>
-          <li>Homepage</li>
-          <li>Uptime Kuma</li>
+          <li>Docker & Docker Compose</li>
+          <li>Ubuntu Server</li>
+          <li>Linux Administration</li>
+          <li>PowerShell Scripting</li>
+          <li>Networking & VLANs</li>
           <li>Nginx Proxy Manager</li>
+          <li>Jellyfin Media Server</li>
+          <li>Homepage Dashboard</li>
+          <li>Uptime Kuma Monitoring</li>
         </ul>
       </div>
     </div>
@@ -74,28 +77,38 @@
 
   .section-heading {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-
+    align-items: flex-start;
+    gap: 1.25rem;
     margin-bottom: 3rem;
-  }
-
-  .section-heading h2 {
-    font-size: 2rem;
-    color: #f8fafc;
   }
 
   .line {
     width: 60px;
     height: 2px;
     background: #3b82f6;
+    margin-top: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .section-number {
+    margin: 0;
+    color: #3b82f6;
+    font-family: monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+
+  .section-heading h2 {
+    margin: 0.35rem 0 0;
+    font-size: 2rem;
+    color: #f8fafc;
+    font-weight: 700;
   }
 
   .about-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
     max-width: 760px;
   }
 
@@ -107,37 +120,33 @@
 
   .about-content strong {
     color: #f8fafc;
+    font-weight: 600;
   }
 
   .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-
     margin-top: 2rem;
   }
 
   .tech-column {
     background: #112240;
-
     border: 1px solid #233554;
-
     border-radius: 12px;
-
     padding: 1.75rem;
-
     transition: all 0.25s ease;
   }
 
   .tech-column:hover {
     border-color: #3b82f6;
     transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
   }
 
   .tech-column h3 {
     color: #f8fafc;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
     font-size: 1.1rem;
   }
 
@@ -149,9 +158,8 @@
 
   .tech-column li {
     color: #94a3b8;
-    padding: 0.45rem 0;
+    padding: 0.45rem 0 0.45rem 1.25rem;
     position: relative;
-    padding-left: 1.25rem;
   }
 
   .tech-column li::before {
@@ -159,6 +167,7 @@
     position: absolute;
     left: 0;
     color: #3b82f6;
+    font-weight: bold;
   }
 
   @media (max-width: 768px) {
@@ -168,6 +177,10 @@
 
     .section-heading h2 {
       font-size: 1.75rem;
+    }
+
+    .tech-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<header class="section-heading">
+  <p class="eyebrow">01.</p>
+
+  <div class="heading-content">
+    <h2>{title}</h2>
+
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+  </div>
+</header>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    color: #3b82f6;
+    font-family: monospace;
+    font-size: 0.95rem;
+    margin: 0;
+    padding-top: 0.4rem;
+  }
+
+  .heading-content {
+    flex: 1;
+  }
+
+  h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    margin-top: 0.75rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+</style>
