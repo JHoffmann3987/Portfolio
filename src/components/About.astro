@@ -1,3 +1,173 @@
-<section>
-  <h2>Placeholder</h2>
+<section id="about" class="about">
+  <div class="section-heading">
+    <span class="line"></span>
+    <h2>About</h2>
+  </div>
+
+  <div class="about-content">
+    <p>
+      I'm an <strong>IT Support Technician</strong> working in a Managed Service Provider
+      (MSP) environment, where I provide technical support to business clients across
+      a wide range of technologies. My day-to-day work includes troubleshooting Windows
+      systems, administering Microsoft 365, managing user identities, supporting endpoint
+      security, and resolving networking issues.
+    </p>
+
+    <p>
+      Outside of work, I maintain a home lab that serves as both a learning
+      environment and a place to experiment with enterprise technologies.
+      Building real systems has become my favorite way to learn. Every project
+      in this portfolio was designed, deployed, documented, and maintained by
+      me.
+    </p>
+
+    <p>
+      I enjoy solving technical problems, automating repetitive tasks, and
+      continuously expanding my knowledge of infrastructure, virtualization,
+      Linux, networking, and cloud technologies. My goal is to continue growing
+      into a Systems Administrator or Infrastructure Engineer while building
+      solutions that are reliable, secure, and easy to maintain.
+    </p>
+
+    <div class="tech-grid">
+      <div class="tech-column">
+        <h3>Professional Experience</h3>
+
+        <ul>
+          <li>Microsoft 365</li>
+          <li>Exchange Online</li>
+          <li>Entra ID</li>
+          <li>Active Directory</li>
+          <li>NinjaOne</li>
+          <li>SentinelOne</li>
+          <li>Guardz</li>
+          <li>Barracuda</li>
+          <li>Huntress</li>
+          <li>SonicWall</li>
+        </ul>
+      </div>
+
+      <div class="tech-column">
+        <h3>Home Lab</h3>
+
+        <ul>
+          <li>Proxmox VE</li>
+          <li>Docker</li>
+          <li>Linux</li>
+          <li>PowerShell</li>
+          <li>Networking</li>
+          <li>Virtualization</li>
+          <li>Jellyfin</li>
+          <li>Homepage</li>
+          <li>Uptime Kuma</li>
+          <li>Nginx Proxy Manager</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .about {
+    padding: 8rem 0;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 3rem;
+  }
+
+  .section-heading h2 {
+    font-size: 2rem;
+    color: #f8fafc;
+  }
+
+  .line {
+    width: 60px;
+    height: 2px;
+    background: #3b82f6;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    max-width: 760px;
+  }
+
+  .about-content p {
+    color: #94a3b8;
+    line-height: 1.9;
+    font-size: 1.05rem;
+  }
+
+  .about-content strong {
+    color: #f8fafc;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 2rem;
+
+    margin-top: 2rem;
+  }
+
+  .tech-column {
+    background: #112240;
+
+    border: 1px solid #233554;
+
+    border-radius: 12px;
+
+    padding: 1.75rem;
+
+    transition: all 0.25s ease;
+  }
+
+  .tech-column:hover {
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+  }
+
+  .tech-column h3 {
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .tech-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tech-column li {
+    color: #94a3b8;
+    padding: 0.45rem 0;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .tech-column li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 5rem 0;
+    }
+
+    .section-heading h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>

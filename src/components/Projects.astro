@@ -1,3 +1,217 @@
-<section>
-  <h2>Placeholder</h2>
+<section class="projects" id="projects">
+  <h2>Featured Projects</h2>
+
+  <div class="project-list">
+    <a href="/projects/proxmox-homelab" class="project-card">
+      <div class="project-header">
+        <div>
+          <p class="overline">Infrastructure</p>
+          <h3>Proxmox Home Lab</h3>
+        </div>
+
+        <span class="arrow">→</span>
+      </div>
+
+      <p class="description">
+        Designed and maintain a virtualization environment used to expand my
+        knowledge of enterprise infrastructure, Linux administration, Docker,
+        storage, networking, and self-hosted services.
+      </p>
+
+      <ul class="highlights">
+        <li>Virtual Machines & LXC Containers</li>
+        <li>Docker Services</li>
+        <li>SMB Storage</li>
+        <li>Linux Administration</li>
+        <li>Network Troubleshooting</li>
+      </ul>
+
+      <div class="tags">
+        <span>Proxmox</span>
+        <span>Docker</span>
+        <span>Ubuntu</span>
+        <span>Linux</span>
+        <span>Networking</span>
+      </div>
+    </a>
+
+    <a href="/projects/docker-services" class="project-card">
+      <div class="project-header">
+        <div>
+          <p class="overline">Self Hosting</p>
+          <h3>Docker Services</h3>
+        </div>
+
+        <span class="arrow">→</span>
+      </div>
+
+      <p class="description">
+        Built a collection of self-hosted services to improve reliability,
+        monitoring, media management, and password security while learning
+        containerized deployments.
+      </p>
+
+      <ul class="highlights">
+        <li>Homepage Dashboard</li>
+        <li>Jellyfin</li>
+        <li>Uptime Kuma</li>
+        <li>Vaultwarden</li>
+        <li>Nginx Proxy Manager</li>
+      </ul>
+
+      <div class="tags">
+        <span>Docker</span>
+        <span>Linux</span>
+        <span>Compose</span>
+        <span>Reverse Proxy</span>
+      </div>
+    </a>
+
+    <a href="/projects/microsoft-365" class="project-card">
+      <div class="project-header">
+        <div>
+          <p class="overline">Administration</p>
+          <h3>Microsoft 365</h3>
+        </div>
+
+        <span class="arrow">→</span>
+      </div>
+
+      <p class="description">
+        Daily administration of Microsoft 365 services while supporting business
+        clients in a Managed Service Provider environment.
+      </p>
+
+      <ul class="highlights">
+        <li>Exchange Online</li>
+        <li>Entra ID</li>
+        <li>Microsoft 365 Licensing</li>
+        <li>MFA Administration</li>
+        <li>User Provisioning</li>
+      </ul>
+
+      <div class="tags">
+        <span>Microsoft 365</span>
+        <span>Entra ID</span>
+        <span>Exchange</span>
+        <span>PowerShell</span>
+      </div>
+    </a>
+  </div>
 </section>
+
+<style>
+  .projects {
+    padding: 8rem 0;
+  }
+
+  .projects h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #f8fafc;
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: block;
+
+    background: #112240;
+
+    border: 1px solid #233554;
+    border-radius: 14px;
+
+    padding: 2rem;
+
+    transition: all 0.25s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: #3b82f6;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    margin-bottom: 1rem;
+  }
+
+  .overline {
+    color: #3b82f6;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .project-header h3 {
+    font-size: 1.7rem;
+    color: #f8fafc;
+  }
+
+  .arrow {
+    color: #3b82f6;
+    font-size: 2rem;
+  }
+
+  .description {
+    color: #94a3b8;
+
+    line-height: 1.8;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .highlights {
+    color: #cbd5e1;
+
+    margin: 0 0 2rem 1.25rem;
+
+    line-height: 1.9;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tags span {
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+
+    padding: 0.45rem 0.9rem;
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .projects {
+      padding: 5rem 0;
+    }
+
+    .project-header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .arrow {
+      display: none;
+    }
+  }
+</style>
