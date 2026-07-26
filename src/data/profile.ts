@@ -51,4 +51,10 @@ export const profile = {
   /** Short intro used on the contact section/page */
   contactIntro:
     "I'm always interested in connecting with other IT professionals, collaborating on projects, and exploring new career opportunities.",
+
+  certifications: [
+    "CompTIA A+",
+    "3CX VoIP Certified Technician",
+    "Canon Full-Line Certified Technician",
+  ],
 };

@@ -15,11 +15,12 @@ import SectionHeading from "./ui/SectionHeading.astro";
         <p class="company">Managed Service Provider (MSP)</p>
 
         <p class="description">
-          I provide day-to-day technical support for business clients across a
-          variety of industries, helping maintain secure, reliable, and
-          productive IT environments. My role combines troubleshooting,
-          administration, customer service, and continuous learning while
-          supporting Microsoft 365, Windows, networking, and endpoint security.
+          Day-to-day support for business clients across a mix of
+          industries — Microsoft 365, networking, endpoint security, and
+          whatever hardware or software problem lands in the ticket queue
+          that day. Half the job is fixing things; the other half is
+          documenting them well enough that the next person (or future me)
+          doesn't have to start from scratch.
         </p>
 
         <ul class="responsibilities">
@@ -80,11 +81,10 @@ import SectionHeading from "./ui/SectionHeading.astro";
         <p class="company">Personal Infrastructure Project</p>
 
         <p class="description">
-          My home lab serves as a practical learning environment where I build,
-          break, troubleshoot, and document enterprise-inspired infrastructure.
-          It allows me to gain hands-on experience with technologies beyond my
-          daily responsibilities and continually strengthen my systems
-          administration skills.
+          Everything I can't justify testing on a client's network gets
+          tested here first. Proxmox host, VLAN-segmented network behind an
+          OPNsense firewall, self-hosted services in Docker, and a growing
+          PowerShell toolkit — all built, broken, and rebuilt on purpose.
         </p>
 
         <ul class="responsibilities">
@@ -93,34 +93,35 @@ import SectionHeading from "./ui/SectionHeading.astro";
             Host Docker containers for self-hosted infrastructure and services.
           </li>
           <li>
-            Configure Linux servers, storage, permissions, and networking.
+            Segmented the network into VLANs behind an OPNsense firewall,
+            with zero downtime to existing Wi-Fi and media services.
           </li>
           <li>
-            Experiment with VLANs, routing, DNS, and virtualization concepts.
+            Built a PowerShell toolkit (~20 scripts) for network discovery,
+            system health checks, and reporting.
           </li>
           <li>
             Implement monitoring, dashboards, reverse proxies, and media
             services.
           </li>
           <li>
-            Document deployments and maintain a GitHub repository for projects.
+            Document deployments and maintain a public GitHub repository for
+            projects.
           </li>
           <li>
             Practice troubleshooting by intentionally testing and recovering
-            from failures.
-          </li>
-          <li>
-            Continuously expand knowledge through hands-on experimentation.
+            from failures — most recently a DHCP reservation bug traced
+            through live Kea logs.
           </li>
         </ul>
 
         <div class="tech-stack">
           <span>Proxmox VE</span>
           <span>Docker</span>
+          <span>OPNsense</span>
+          <span>VLANs</span>
           <span>Ubuntu Server</span>
           <span>Linux</span>
-          <span>Networking</span>
-          <span>VLANs</span>
           <span>Nginx Proxy Manager</span>
           <span>PowerShell</span>
           <span>Git</span>

@@ -6,7 +6,7 @@ const skillGroups = [
   {
     title: "Microsoft 365 & Identity",
     description:
-      "Daily administration of Microsoft 365 environments while supporting business clients in a Managed Service Provider (MSP) environment.",
+      "The bulk of my ticket queue — provisioning, licensing, MFA policy, and mailbox issues across a rotating set of client tenants.",
     skills: [
       "Microsoft 365",
       "Exchange Online",
@@ -16,12 +16,13 @@ const skillGroups = [
       "MFA",
       "User Management",
     ],
+    projectSlug: "microsoft-365",
   },
 
   {
     title: "Windows & Active Directory",
     description:
-      "Supporting Windows workstations and servers, managing users, permissions, and core infrastructure services.",
+      "Group Policy, permissions, and the occasional domain controller that needs babying — keeping client domains healthy day to day.",
     skills: [
       "Windows 11",
       "Windows Server",
@@ -35,7 +36,7 @@ const skillGroups = [
   {
     title: "Virtualization",
     description:
-      "Building and maintaining a Proxmox home lab to gain experience with enterprise virtualization and infrastructure.",
+      "Where the home lab actually lives — a Proxmox host running LXC containers and VMs, snapshotted and backed up like it's someone's production environment. Because eventually it will be.",
     skills: [
       "Proxmox VE",
       "Virtual Machines",
@@ -44,12 +45,13 @@ const skillGroups = [
       "Storage",
       "Backups",
     ],
+    projectSlug: "proxmox-homelab",
   },
 
   {
     title: "Linux & Docker",
     description:
-      "Deploying and maintaining self-hosted services using Docker while improving Linux administration skills.",
+      "Every self-hosted service in the lab runs containerized, defined in Compose files I can tear down and rebuild without touching the host OS.",
     skills: [
       "Ubuntu Server",
       "Docker",
@@ -58,19 +60,21 @@ const skillGroups = [
       "Nginx Proxy Manager",
       "Jellyfin",
     ],
+    projectSlug: "docker-services",
   },
 
   {
     title: "Networking",
     description:
-      "Building and troubleshooting small business and home lab networks while learning enterprise networking concepts.",
-    skills: ["TCP/IP", "VLANs", "DNS", "DHCP", "VPN", "SonicWall"],
+      "OPNsense firewall rules, 802.1Q VLAN trunking, and the DNS/DHCP internals that break in interesting ways — segmented my home network into MGMT, SERVERS, and IOT without knocking anyone's Wi-Fi offline.",
+    skills: ["TCP/IP", "VLANs", "OPNsense", "DNS", "DHCP", "VPN", "SonicWall"],
+    projectSlug: "networking-lab",
   },
 
   {
     title: "Security",
     description:
-      "Supporting endpoint protection, identity security, and email security platforms used by business clients.",
+      "The tools standing between client environments and whatever's trying to get in — deployed, monitored, and occasionally the reason I'm still troubleshooting after 5pm.",
     skills: [
       "SentinelOne",
       "Huntress",
@@ -83,14 +87,15 @@ const skillGroups = [
   {
     title: "Automation & Development",
     description:
-      "Writing scripts and using version control to automate repetitive tasks and document infrastructure projects.",
+      "18 scripts and counting. If I do something by hand more than twice, it becomes a PowerShell script with a param block.",
     skills: ["PowerShell", "Git", "GitHub", "VS Code", "Scripting"],
+    projectSlug: "powershell-automation",
   },
 
   {
     title: "IT Operations",
     description:
-      "Providing technical support, documentation, remote troubleshooting, and endpoint management in an MSP environment.",
+      "The unglamorous half of the job — documentation, ticket hygiene, and making sure the next tech (or future me) isn't guessing what a client's setup looks like.",
     skills: [
       "NinjaOne",
       "Remote Support",
@@ -104,10 +109,7 @@ const skillGroups = [
 ---
 
 <section id="skills" class="skills">
-  <SectionHeading
-    title="Skills & Technologies"
-    description="My technical experience comes from supporting business clients in a Managed Service Provider (MSP) environment while continuously expanding my knowledge through hands-on home lab projects and self-hosted infrastructure."
-  />
+  <SectionHeading title="Skills & Technologies" />
 
   <div class="skills-grid">
     {
@@ -122,6 +124,12 @@ const skillGroups = [
               <Badge>{skill}</Badge>
             ))}
           </div>
+
+          {group.projectSlug && (
+            <a href={`/projects/${group.projectSlug}`} class="evidence-link">
+              See it in a project →
+            </a>
+          )}
         </div>
       ))
     }
@@ -169,6 +177,23 @@ const skillGroups = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+  }
+
+  .evidence-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+
+    color: var(--accent-light);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+  }
+
+  .evidence-link:hover {
+    color: var(--accent-lighter);
   }
 
   @media (max-width: 768px) {

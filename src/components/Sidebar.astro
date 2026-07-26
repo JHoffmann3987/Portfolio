@@ -49,6 +49,13 @@ import { profile } from "../data/profile";
     </a>
   </nav>
 
+  <div class="certs">
+    <span class="certs-label">Certified</span>
+    <ul>
+      {profile.certifications.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </div>
+
   <div class="social">
     <a href={profile.github} target="_blank" rel="noopener noreferrer">
       GitHub
@@ -202,6 +209,44 @@ import { profile } from "../data/profile";
   .social {
     display: flex;
     gap: 1.5rem;
+  }
+
+  .certs {
+    margin-bottom: 2rem;
+  }
+
+  .certs-label {
+    display: block;
+    margin-bottom: 0.6rem;
+
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .certs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .certs li {
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .certs li::before {
+    content: "✓ ";
+    color: var(--accent);
   }
 
   .social a {
