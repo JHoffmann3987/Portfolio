@@ -24,6 +24,8 @@ export interface Project {
   detailHighlights: string[];
   challenges: string[];
   learned: string;
+  /** Optional forward-looking roadmap, for projects built in deliberate phases */
+  nextSteps?: string[];
   /** Optional link to the public GitHub repo for this project */
   githubUrl?: string;
   /** Optional screenshot paths (relative to /public), e.g. "/projects/proxmox/dashboard.png" */
@@ -211,46 +213,73 @@ Proxmox Server (pve)
   {
     slug: "networking-lab",
     category: "Networking",
-    title: "Networking Lab",
+    title: "Networking Lab — Phase 1: Segmentation",
     emoji: "🌐",
     description:
-      "Hands-on networking practice covering VLANs, managed switches, routing, DNS, and firewall configuration using enterprise-style networking equipment, built to strengthen the foundational networking skills used daily in MSP work.",
+      "Deployed OPNsense and VLAN-segmented my home network behind the existing household router — a real stateful firewall, 802.1Q trunking over a single NIC, and per-VLAN DHCP/DNS, rolled out with zero disruption to the Wi-Fi and media server the rest of the household relies on daily.",
     highlights: [
-      "VLAN Segmentation",
-      "Managed Switch Configuration",
-      "DNS & DHCP",
-      "Firewall Rules",
-      "Routing",
+      "OPNsense Firewall (Proxmox VM)",
+      "VLAN Segmentation (802.1Q)",
+      "Kea DHCP & Unbound DNS",
+      "Zero-Downtime Migration",
     ],
-    tags: ["Networking", "VLANs", "DNS", "DHCP", "SonicWall"],
-    techList: ["VLANs", "TCP/IP", "DNS", "DHCP", "SonicWall", "Routing"],
+    tags: ["OPNsense", "VLANs", "Networking", "Firewall"],
+    techList: [
+      "OPNsense",
+      "802.1Q VLANs",
+      "Kea DHCP",
+      "Unbound DNS",
+      "Proxmox Networking",
+      "Netgear GS108Ev4",
+    ],
     overview: [
-      "Networking is a big part of day-to-day MSP work, so I built out a small lab to practice concepts beyond what comes up in routine troubleshooting — segmenting traffic with VLANs, configuring routing between subnets, and setting firewall rules on enterprise-style equipment rather than just reading about them.",
-      "This lab runs alongside the Proxmox environment, giving me a safe place to break and rebuild network configurations without risking a client environment.",
+      "My home network ran flat for years — Proxmox, Docker, and Jellyfin all sharing the same broadcast domain as every phone, laptop, and TV in the house. Phase 1 of this project introduces real segmentation: a dedicated firewall, VLAN-tagged internal networks, and rules that actually enforce which parts of the network can reach which.",
+      "Rather than replace the household router — which would mean reconfiguring every device in the house and risking downtime for people who just want Wi-Fi to work — I deployed OPNsense as a Proxmox VM sitting behind it. The existing TP-Link keeps handling NAT, DHCP, and Wi-Fi exactly as before; OPNsense's WAN interface is just another client on that network, the same as any other device. With only one physical NIC on the Proxmox host, every VLAN rides a single 802.1Q trunk to a Netgear GS108Ev4 managed switch, with VLAN tagging handled at the Proxmox bridge level rather than inside any guest OS.",
+      "The VLAN scheme was deliberately scoped down from an earlier, more ambitious plan: MGMT for administrative access, SERVERS for self-hosted workloads, and IOT reserved for untrusted devices later. Firewall rules enforce that SERVERS and IOT can't reach MGMT, while MGMT keeps full access for administration.",
     ],
+    architecture: `Internet
+  │
+TP-Link Router (NAT, DHCP, Wi-Fi)
+  ├── Household Wi-Fi — untagged, VLAN 1
+  └── Managed Switch — 802.1Q trunk
+        ├── Admin PC — access port, VLAN 10 (MGMT)
+        └── Proxmox Host — trunk port
+              ├── Jellyfin (LXC) — untagged, VLAN 1
+              └── OPNsense (VM) — firewall
+                    ├── VLAN 10 — MGMT     (10.0.10.0/24)
+                    ├── VLAN 20 — SERVERS  (10.0.20.0/24)
+                    │     └── VM 100 — 10.0.20.10
+                    └── VLAN 40 — IOT      (10.0.40.0/24, reserved)`,
     technologies: [
-      "VLANs",
-      "TCP/IP Networking",
-      "DNS",
-      "DHCP",
-      "SonicWall Firewalls",
-      "Managed Switches",
+      "OPNsense",
+      "802.1Q VLAN Trunking",
+      "Kea DHCP",
+      "Unbound DNS (recursive)",
+      "Netgear GS108Ev4 Managed Switch",
+      "Proxmox VLAN-Aware Bridging",
     ],
     detailHighlights: [
-      "Segmented lab traffic using VLANs across a managed switch.",
-      "Configured inter-VLAN routing and firewall rules.",
-      "Set up DNS and DHCP for lab subnets.",
-      "Practiced firewall rule configuration on SonicWall hardware.",
-      "Documented network topology and IP addressing scheme.",
+      "Deployed OPNsense as a Proxmox VM with four virtual NICs — one untagged WAN link and three VLAN-tagged interfaces for MGMT, SERVERS, and IOT.",
+      "Configured a single 802.1Q trunk between Proxmox and a Netgear GS108Ev4 managed switch — no physical NIC upgrade required.",
+      "Wrote firewall rules enforcing that SERVERS and IOT cannot reach the MGMT network, while MGMT retains full administrative access.",
+      "Migrated a test VM onto the new SERVERS VLAN as a zero-downtime proof of concept, with household Wi-Fi and Jellyfin left completely untouched.",
+      "Configured Unbound as a fully recursive DNS resolver and Kea for per-VLAN DHCP, including host reservations.",
     ],
     challenges: [
-      "Getting inter-VLAN routing and firewall rules to interact correctly.",
-      "Troubleshooting DHCP scope and DNS resolution issues across subnets.",
-      "Understanding trunk vs. access port configuration on managed switches.",
+      "Locked myself out of the switch's own management page after changing an access port's PVID to a VLAN with no route back — recovered with a factory reset, and a reminder to change one variable at a time on management-plane settings.",
+      "DHCP silently failed on every VLAN after deploying OPNsense. Traced through the Kea logs to a port conflict with Dnsmasq, still running from OPNsense's initial console setup and holding port 67 on every interface Kea needed.",
+      "A Kea DHCP reservation was accepted in the GUI but never honored by the client. Watching the DHCP log live showed the client requesting INIT-REBOOT reconfirmation of its old lease, and Kea granting it without ever cross-checking the reservation — a subnet-ID association issue rather than anything wrong on the client side. Fell back to a static IP rather than block the rest of the build on it.",
     ],
     learned:
-      "Working hands-on with VLANs, routing, and firewall rules outside of a live client environment has made me noticeably faster at diagnosing networking issues at work, since I've already run into (and fixed) many of the same problems here first.",
-    screenshots: ["/projects/networking-lab/topology.svg"],
+      "This project reinforced that segmentation is as much a change-management exercise as a technical one — the real constraint wasn't configuring VLANs, it was doing it without breaking Wi-Fi or Jellyfin for the rest of the household. The troubleshooting mattered as much as the build: a service that fails silently after exhausting its retries can look identical to a working one in the logs unless you know what a 'gave up' message looks like, and watching a live DHCP log turned out to be the only way to see what Kea was actually doing versus what the GUI claimed.",
+    nextSteps: [
+      "Migrate Jellyfin behind the firewall with a scoped exception rule, or accept manual server addressing in clients.",
+      "Populate the IOT VLAN with real devices.",
+      "Move Proxmox host management itself onto the MGMT VLAN.",
+      "Stand up WireGuard on OPNsense for remote administration.",
+      "Root-cause the Kea reservation / INIT-REBOOT matching bug instead of working around it.",
+    ],
+    screenshots: ["/projects/networking-lab/phase1-topology.svg"],
   },
 
   {

@@ -70,6 +70,18 @@ const { project } = Astro.props;
 
     <p>{project.learned}</p>
 
+    {
+      project.nextSteps && project.nextSteps.length > 0 && (
+        <>
+          <h2>Next Steps</h2>
+
+          <ul>
+            {project.nextSteps.map((item) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
     <div class="gallery">
       <h2>Gallery</h2>
 
