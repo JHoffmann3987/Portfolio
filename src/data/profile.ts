@@ -11,7 +11,7 @@ export const profile = {
   /** Canonical bio paragraphs — used on the homepage About section and the standalone /about page */
   bio: [
     "I'm an IT Support Technician working in a Managed Service Provider (MSP) environment, where I help business clients troubleshoot Windows systems, administer Microsoft 365 environments, manage user identities, and support endpoint security and networking. Every day brings a different challenge, which is one of the things I enjoy most about IT.",
-    "Outside of work, I spend much of my time building and improving my home lab. It's where I experiment with virtualization, Linux, Docker, networking, and infrastructure technologies before applying what I learn in real-world environments. Building systems from the ground up has become my favorite way to learn and continually improve my skills.",
+    "Outside of work, I spend much of my time building and improving my home lab. It's where I experiment with virtualization, Linux, Docker, and networking before applying what I learn in real-world environments — building it myself is how I actually learn, better than any course.",
     "I care about well-documented infrastructure and automating repetitive tasks wherever I can. I'm working toward a Systems Administrator or Infrastructure Engineer role, with a focus on Microsoft 365, virtualization, networking, and cloud technologies.",
   ],
 
@@ -52,9 +52,5 @@ export const profile = {
   contactIntro:
     "I'm always interested in connecting with other IT professionals, collaborating on projects, and exploring new career opportunities.",
 
-  certifications: [
-    "CompTIA A+",
-    "3CX VoIP Certified Technician",
-    "Canon Full-Line Certified Technician",
-  ],
+  certifications: ["CompTIA A+", "3CX VoIP Certified Technician"],
 };

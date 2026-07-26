@@ -233,9 +233,8 @@ Proxmox Server (pve)
       "Netgear GS108Ev4",
     ],
     overview: [
-      "My home network ran flat for years — Proxmox, Docker, and Jellyfin all sharing the same broadcast domain as every phone, laptop, and TV in the house. Phase 1 of this project introduces real segmentation: a dedicated firewall, VLAN-tagged internal networks, and rules that actually enforce which parts of the network can reach which.",
-      "Rather than replace the household router — which would mean reconfiguring every device in the house and risking downtime for people who just want Wi-Fi to work — I deployed OPNsense as a Proxmox VM sitting behind it. The existing TP-Link keeps handling NAT, DHCP, and Wi-Fi exactly as before; OPNsense's WAN interface is just another client on that network, the same as any other device. With only one physical NIC on the Proxmox host, every VLAN rides a single 802.1Q trunk to a Netgear GS108Ev4 managed switch, with VLAN tagging handled at the Proxmox bridge level rather than inside any guest OS.",
-      "The VLAN scheme was deliberately scoped down from an earlier, more ambitious plan: MGMT for administrative access, SERVERS for self-hosted workloads, and IOT reserved for untrusted devices later. Firewall rules enforce that SERVERS and IOT can't reach MGMT, while MGMT keeps full access for administration.",
+      "My home network ran flat for years — Proxmox, Docker, and Jellyfin all sharing the same broadcast domain as every phone, laptop, and TV in the house. Phase 1 introduces real segmentation: a dedicated firewall, VLAN-tagged networks, and rules that actually enforce which parts of the network can reach which.",
+      "Rather than replace the household router — which would mean reconfiguring every device in the house — I deployed OPNsense as a Proxmox VM behind it, so the existing TP-Link keeps handling NAT, DHCP, and Wi-Fi exactly as before. With only one NIC on the Proxmox host, every VLAN rides a single 802.1Q trunk to a Netgear managed switch, tagged at the Proxmox bridge level rather than inside any guest OS. The scheme is scoped to three VLANs — MGMT, SERVERS, and a reserved IOT — with SERVERS and IOT blocked from reaching MGMT.",
     ],
     architecture: `Internet
   │
@@ -266,12 +265,12 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
       "Configured Unbound as a fully recursive DNS resolver and Kea for per-VLAN DHCP, including host reservations.",
     ],
     challenges: [
-      "Locked myself out of the switch's own management page after changing an access port's PVID to a VLAN with no route back — recovered with a factory reset, and a reminder to change one variable at a time on management-plane settings.",
-      "DHCP silently failed on every VLAN after deploying OPNsense. Traced through the Kea logs to a port conflict with Dnsmasq, still running from OPNsense's initial console setup and holding port 67 on every interface Kea needed.",
-      "A Kea DHCP reservation was accepted in the GUI but never honored by the client. Watching the DHCP log live showed the client requesting INIT-REBOOT reconfirmation of its old lease, and Kea granting it without ever cross-checking the reservation — a subnet-ID association issue rather than anything wrong on the client side. Fell back to a static IP rather than block the rest of the build on it.",
+      "Locked myself out of the switch's own management page after changing an access port's PVID to a VLAN with no route back — recovered with a factory reset, a reminder to change one variable at a time on management-plane settings.",
+      "DHCP silently failed on every VLAN after deploying OPNsense — traced through the Kea logs to a port conflict with Dnsmasq, still running from OPNsense's initial console setup and holding port 67 on every interface Kea needed.",
+      "A Kea DHCP reservation was accepted in the GUI but never honored — the client kept requesting INIT-REBOOT reconfirmation of its old lease, and Kea granted it without cross-checking the reservation, pointing to a subnet-ID association bug rather than a client issue. Fell back to a static IP rather than block the build on it.",
     ],
     learned:
-      "This project reinforced that segmentation is as much a change-management exercise as a technical one — the real constraint wasn't configuring VLANs, it was doing it without breaking Wi-Fi or Jellyfin for the rest of the household. The troubleshooting mattered as much as the build: a service that fails silently after exhausting its retries can look identical to a working one in the logs unless you know what a 'gave up' message looks like, and watching a live DHCP log turned out to be the only way to see what Kea was actually doing versus what the GUI claimed.",
+      "This reinforced that segmentation is as much change management as a technical exercise — the real constraint wasn't configuring VLANs, it was doing it without breaking Wi-Fi or Jellyfin for the household. The troubleshooting mattered just as much: a service that fails silently after exhausting retries can look identical to a working one in the logs, and watching Kea's DHCP log live was the only way to see what it was actually doing versus what the GUI claimed.",
     nextSteps: [
       "Migrate Jellyfin behind the firewall with a scoped exception rule, or accept manual server addressing in clients.",
       "Populate the IOT VLAN with real devices.",
