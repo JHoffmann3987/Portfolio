@@ -3,27 +3,29 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import { profile } from "../data/profile";
 ---
 
-<SectionHeading title="About Me" />
+<section id="about" class="about">
+  <SectionHeading title="About Me" />
 
-<div class="about-content">
-  {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
+  <div class="about-content">
+    {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
 
-  <div class="tech-grid">
-    {
-      profile.techColumns.map((column) => (
-        <div class="tech-column">
-          <h3>{column.title}</h3>
+    <div class="tech-grid">
+      {
+        profile.techColumns.map((column) => (
+          <div class="tech-column">
+            <h3>{column.title}</h3>
 
-          <ul>
-            {column.items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
+            <ul>
+              {column.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
   </div>
-</div>
+</section>
 
 <style>
   .about {

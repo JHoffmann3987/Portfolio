@@ -131,7 +131,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .resume h1 {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 6vw, 3rem);
     margin-bottom: 1rem;
   }
 
@@ -235,5 +235,12 @@ import Layout from "../layouts/Layout.astro";
   .projects-button:hover {
     background: var(--accent-dark);
     color: white;
+  }
+
+  @media (max-width: 600px) {
+    .resume {
+      margin: 40px auto;
+      padding: 1.5rem;
+    }
   }
 </style>

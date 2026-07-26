@@ -58,7 +58,7 @@ import { profile } from "../data/profile";
   }
 
   .contact h1 {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 6vw, 3rem);
     margin-bottom: 1rem;
     color: var(--text);
   }
@@ -134,5 +134,12 @@ import { profile } from "../data/profile";
 
   .secondary:hover {
     background: rgba(var(--accent-rgb), 0.08);
+  }
+
+  @media (max-width: 600px) {
+    .contact {
+      margin: 40px auto;
+      padding: 1.5rem;
+    }
   }
 </style>

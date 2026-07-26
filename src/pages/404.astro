@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 Not Found | Justin Hoffmann">
+  <section class="not-found">
+    <div class="status-line">
+      <span class="dot"></span>
+      404 — Resource Not Found
+    </div>
+
+    <h1>This page didn't ping back.</h1>
+
+    <p>
+      The page you're looking for doesn't exist, moved, or never got
+      deployed. Might be worth double-checking the URL.
+    </p>
+
+    <div class="links">
+      <a href="/" class="primary">← Back to home</a>
+      <a href="/projects" class="secondary">View projects</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .status-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.8rem;
+
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: 6px;
+    background: rgba(var(--accent-rgb), 0.08);
+
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent-light);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  h1 {
+    color: var(--text);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .primary,
+  .secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+  }
+
+  .primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+
+  .secondary {
+    border: 1px solid var(--accent);
+    color: var(--accent-light);
+    background: transparent;
+  }
+
+  .secondary:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .not-found {
+      padding: 3rem 1.5rem;
+    }
+
+    .links {
+      flex-direction: column;
+    }
+
+    .primary,
+    .secondary {
+      width: 100%;
+    }
+  }
+</style>

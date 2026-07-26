@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://justinhoffmann.dev/sitemap-index.xml
