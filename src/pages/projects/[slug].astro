@@ -76,8 +76,16 @@ const { project } = Astro.props;
       {
         project.screenshots && project.screenshots.length > 0 ? (
           <div class="screenshot-grid">
-            {project.screenshots.map((src) => (
-              <img src={src} alt={`${project.title} screenshot`} loading="lazy" />
+            {project.screenshots.map((src, i) => (
+              <button
+                type="button"
+                class="screenshot-trigger"
+                data-lightbox-src={src}
+                data-lightbox-index={i}
+                aria-label={`View screenshot ${i + 1} of ${project.title} full size`}
+              >
+                <img src={src} alt={`${project.title} screenshot`} loading="lazy" />
+              </button>
             ))}
           </div>
         ) : (
@@ -87,8 +95,81 @@ const { project } = Astro.props;
     </div>
 
     <a href="/projects" class="back-link">← Back to all projects</a>
+
+    {
+      project.screenshots && project.screenshots.length > 0 && (
+        <div class="lightbox" id="lightbox" hidden>
+          <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">
+            ✕
+          </button>
+
+          <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous screenshot">
+            ‹
+          </button>
+
+          <img src="" alt="" id="lightbox-img" />
+
+          <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next screenshot">
+            ›
+          </button>
+        </div>
+      )
+    }
   </section>
 </Layout>
+
+{
+  project.screenshots && project.screenshots.length > 0 && (
+    <script define:vars={{ screenshots: project.screenshots }}>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close");
+      const prevBtn = document.getElementById("lightbox-prev");
+      const nextBtn = document.getElementById("lightbox-next");
+      const triggers = document.querySelectorAll(".screenshot-trigger");
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = screenshots[currentIndex];
+        lightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      function showDelta(delta) {
+        currentIndex = (currentIndex + delta + screenshots.length) % screenshots.length;
+        lightboxImg.src = screenshots[currentIndex];
+      }
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          openLightbox(Number(trigger.dataset.lightboxIndex));
+        });
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+      prevBtn.addEventListener("click", () => showDelta(-1));
+      nextBtn.addEventListener("click", () => showDelta(1));
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.hidden) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showDelta(-1);
+        if (e.key === "ArrowRight") showDelta(1);
+      });
+    </script>
+  )
+}
 
 <style>
   .project {
@@ -154,12 +235,143 @@ const { project } = Astro.props;
     margin-top: 1.5rem;
   }
 
+  .screenshot-trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    cursor: zoom-in;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .screenshot-trigger:hover,
+  .screenshot-trigger:focus-visible {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .screenshot-trigger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   .screenshot-grid img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border-strong);
     display: block;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.88);
+    padding: 2rem;
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    border: 1px solid var(--border-strong);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface-alt);
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-nav:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+  }
+
+  .lightbox-prev {
+    left: 1.5rem;
+  }
+
+  .lightbox-next {
+    right: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .lightbox {
+      padding: 1rem;
+    }
+
+    .lightbox-nav {
+      width: 42px;
+      height: 42px;
+      font-size: 1.4rem;
+    }
+
+    .lightbox-prev {
+      left: 0.5rem;
+    }
+
+    .lightbox-next {
+      right: 0.5rem;
+    }
+
+    .lightbox-close {
+      top: 0.75rem;
+      right: 0.75rem;
+    }
   }
 
   .project h2 {

@@ -297,6 +297,12 @@ Proxmox Server
     learned:
       "Building this toolkit taught me a lot about PowerShell performance — especially runspaces versus simple loops for anything that touches the network — and reinforced how much time consistent script conventions save once a toolkit grows past a few one-off scripts.",
     githubUrl: "https://github.com/JHoffmann3987/PowerShell-Toolkit",
+    screenshots: [
+      "/projects/powershell-automation/network-scan-output.png",
+      "/projects/powershell-automation/storage-analyzer.png",
+      "/projects/powershell-automation/system-information.png",
+      "/projects/powershell-automation/print-spooler-diagnostics.png",
+    ],
   },
 ];
 
