@@ -101,6 +101,7 @@ Proxmox Server
     ],
     learned:
       "Building this home lab has significantly improved my understanding of virtualization, Linux administration, Docker, networking, storage, and troubleshooting. It has reinforced the importance of documentation, backups, version control, and solving technical problems through careful testing rather than guesswork.",
+    screenshots: ["/projects/proxmox-homelab/dashboard.png"],
   },
 
   {
