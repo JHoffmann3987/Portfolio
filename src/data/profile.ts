@@ -44,7 +44,6 @@ export const profile = {
         "Nginx Proxy Manager",
         "Jellyfin Media Server",
         "Homepage Dashboard",
-        "Uptime Kuma Monitoring",
       ],
     },
   ],

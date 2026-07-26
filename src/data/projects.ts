@@ -64,16 +64,15 @@ export const projects: Project[] = [
   │
 Router
   │
-Proxmox Server
-  ├── Ubuntu Server VM
-  │     ├── Docker
-  │     ├── Homepage
-  │     ├── Jellyfin
-  │     ├── Sonarr
-  │     ├── Radarr
-  │     ├── Prowlarr
-  │     └── Nginx Proxy Manager
-  └── Additional Virtual Machines`,
+Proxmox Server (pve)
+  ├── LXC 101 — Jellyfin
+  ├── VM 100 — Ubuntu Server
+  │     └── Docker
+  │           ├── go2rtc
+  │           ├── Homepage
+  │           ├── Nginx Proxy Manager
+  │           └── Portainer
+  └── Additional VMs / Containers`,
     technologies: [
       "Proxmox VE",
       "Ubuntu Server",
@@ -110,42 +109,38 @@ Proxmox Server
     title: "Docker Services",
     emoji: "🐳",
     description:
-      "Designed and deployed multiple Docker services to improve monitoring, media management, password security, and overall reliability while learning containerized application deployment.",
+      "Designed and deployed multiple Docker services for home security camera streaming, service discovery, and reverse proxy management, managed through Portainer while learning containerized application deployment.",
     highlights: [
       "Homepage Dashboard",
-      "Jellyfin",
-      "Vaultwarden",
-      "Uptime Kuma",
+      "go2rtc (Camera Streaming)",
       "Nginx Proxy Manager",
+      "Portainer",
     ],
-    tags: ["Docker", "Docker Compose", "Linux", "Reverse Proxy", "Monitoring"],
+    tags: ["Docker", "Docker Compose", "Linux", "Reverse Proxy"],
     techList: [
       "Docker",
       "Docker Compose",
       "Ubuntu Server",
       "Nginx Proxy Manager",
-      "Vaultwarden",
-      "Uptime Kuma",
+      "Portainer",
     ],
     overview: [
       "Running services in Docker containers on top of the Proxmox home lab gave me a practical way to learn containerized deployment without risking a full VM rebuild every time something went wrong. Each service runs in its own container, defined and versioned through Docker Compose so the whole stack can be torn down and rebuilt from a single file.",
-      "The goal was to make the lab more useful day-to-day — a dashboard to see everything at a glance, a media server, password management, and uptime monitoring — while learning how containers, networks, and volumes fit together in practice.",
+      "I manage the stack through Portainer for a clear view of container state, published ports, and images at a glance. go2rtc handles low-latency streaming for my home security cameras, Nginx Proxy Manager takes care of reverse proxy routing, and Homepage acts as a central launcher for everything running in the lab.",
     ],
     technologies: [
       "Docker",
       "Docker Compose",
       "Nginx Proxy Manager",
       "Homepage",
-      "Jellyfin",
-      "Vaultwarden",
-      "Uptime Kuma",
+      "Portainer",
+      "go2rtc",
     ],
     detailHighlights: [
       "Deployed a Homepage dashboard to monitor and launch all self-hosted services.",
-      "Set up Jellyfin as a self-hosted media server.",
-      "Ran Vaultwarden for self-hosted password management.",
-      "Configured Uptime Kuma to monitor service availability and alert on downtime.",
+      "Run go2rtc for low-latency streaming of home security cameras.",
       "Used Nginx Proxy Manager to route traffic to each service over clean subdomains.",
+      "Manage the full container stack through Portainer.",
       "Defined every stack with Docker Compose for repeatable, version-controlled deployments.",
     ],
     challenges: [
@@ -156,6 +151,7 @@ Proxmox Server
     ],
     learned:
       "This project taught me how containerized applications are structured, networked, and persisted, and gave me real practice with Docker Compose as a way to document and reproduce a deployment instead of configuring services by hand each time.",
+    screenshots: ["/projects/docker-services/portainer-containers.png"],
   },
 
   {
@@ -209,6 +205,7 @@ Proxmox Server
     ],
     learned:
       "This work has given me a solid, practical understanding of identity and licensing management at scale, and reinforced how much of good Microsoft 365 administration comes down to consistent process and documentation across many different environments.",
+    screenshots: ["/projects/microsoft-365/architecture.svg"],
   },
 
   {
@@ -253,6 +250,7 @@ Proxmox Server
     ],
     learned:
       "Working hands-on with VLANs, routing, and firewall rules outside of a live client environment has made me noticeably faster at diagnosing networking issues at work, since I've already run into (and fixed) many of the same problems here first.",
+    screenshots: ["/projects/networking-lab/topology.svg"],
   },
 
   {
