@@ -3,15 +3,18 @@ interface Props {
   title: string;
   description?: string;
   number?: string;
+  command?: string;
 }
 
-const { title, description, number } = Astro.props;
+const { title, description, number, command } = Astro.props;
 ---
 
 <div class="section-heading">
   <span class="line"></span>
 
   <div class="content">
+    {command && <span class="command">{command}</span>}
+
     <h2>{number && <span class="number">{number}</span>}{title}</h2>
 
     {description && <p class="description">{description}</p>}
@@ -36,6 +39,16 @@ const { title, description, number } = Astro.props;
 
   .content {
     flex: 1;
+  }
+
+  .command {
+    display: block;
+    margin-bottom: 0.6rem;
+
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
   }
 
   h2 {

@@ -53,4 +53,27 @@ export const profile = {
     "I'm always interested in connecting with other IT professionals, collaborating on projects, and exploring new career opportunities.",
 
   certifications: ["CompTIA A+", "3CX VoIP Certified Technician"],
+
+  /** Verifiable credential links, keyed by cert name. Fill in your real Credly URL for A+. */
+  certLinks: {
+    // "CompTIA A+": "https://www.credly.com/badges/YOUR-BADGE-ID",
+  } as Record<string, string>,
+
+  /** Concrete numbers for the hero stat strip */
+  stats: [
+    { value: "5", label: "Lab Projects" },
+    { value: "18", label: "PowerShell Scripts" },
+    { value: "3", label: "VLANs Segmented" },
+  ],
+
+  /** Terminal-style facts block (rendered like `cat ./facts`) */
+  terminalFacts: [
+    { key: "NAME", value: "Justin Hoffmann" },
+    { key: "ROLE", value: "IT Support Technician → Sysadmin" },
+    { key: "LOCATION", value: "Pensacola, Florida" },
+    { key: "FOCUS", value: "M365 · Virtualization · Networking" },
+    { key: "LAB", value: "Proxmox · OPNsense · Docker" },
+    { key: "CERTS", value: "CompTIA A+ · 3CX" },
+    { key: "STATUS", value: "Open to opportunities" },
+  ],
 };
