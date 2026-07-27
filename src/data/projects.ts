@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "Proxmox Home Lab",
     emoji: "🖥️",
     description:
-      "Built and maintain a Proxmox virtualization environment to gain hands-on experience with enterprise infrastructure, virtualization, Linux administration, storage, networking, and self-hosted services. This environment serves as the foundation for all of my home lab projects.",
+      "The foundation everything else runs on — a Proxmox VE host running the VMs and LXC containers behind every other project on this site. Snapshots and scheduled backups so I can break things without consequences.",
     highlights: [
       "Virtual Machines & LXC Containers",
       "Shared SMB Storage",
@@ -59,8 +59,8 @@ export const projects: Project[] = [
       "Networking",
     ],
     overview: [
-      "This home lab serves as my personal environment for learning enterprise infrastructure technologies through hands-on experience. Rather than using cloud-based labs, I built and maintain my own virtualization platform using Proxmox VE, allowing me to safely deploy, configure, troubleshoot, and rebuild systems as I learn.",
-      "The lab has become the foundation for experimenting with Linux administration, Docker containers, networking, storage, automation, and self-hosted applications.",
+      "I wanted to learn infrastructure on real hardware I could break and rebuild, not a cloud sandbox that resets when the free tier runs out. So I built my own: a Proxmox VE host that now runs everything from a Jellyfin container to an OPNsense firewall VM.",
+      "Because it's the base layer for every other project here, it's also where I learned the operations discipline that matters more than any single technology — snapshotting before risky changes, scheduled backups, and rebuilding a broken service from scratch instead of guessing at a fix.",
     ],
     architecture: `Internet
   │
@@ -91,7 +91,7 @@ Proxmox Server (pve)
       "Host multiple Docker services.",
       "Practice networking and storage configuration.",
       "Document infrastructure using GitHub.",
-      "Continuously expand the lab with new technologies.",
+      "Add new services and rebuild broken ones as the lab grows.",
     ],
     challenges: [
       "Learning Linux permissions and file ownership.",
@@ -101,7 +101,7 @@ Proxmox Server (pve)
       "Managing virtual networking inside Proxmox.",
     ],
     learned:
-      "Building this home lab has significantly improved my understanding of virtualization, Linux administration, Docker, networking, storage, and troubleshooting. It has reinforced the importance of documentation, backups, version control, and solving technical problems through careful testing rather than guesswork.",
+      "More than any specific technology, this taught me the habits that keep infrastructure recoverable — snapshot before you change something, back up before you trust it, and rebuild from a known-good state instead of troubleshooting blind. The kind of discipline that's invisible until the day it saves you.",
     screenshots: ["/projects/proxmox-homelab/dashboard.png"],
   },
 
@@ -180,7 +180,7 @@ Proxmox Server (pve)
       "MFA",
     ],
     overview: [
-      "As part of my day-to-day work at an MSP, I administer Microsoft 365 environments for a range of business clients. This covers the full identity and licensing lifecycle — provisioning new users, assigning and reclaiming licenses, managing Exchange Online mailboxes, and configuring multi-factor authentication and conditional access to keep client environments secure.",
+      "This is my day job. I administer Microsoft 365 across a rotating set of client tenants — the full identity and licensing lifecycle: provisioning and deprovisioning users, assigning and reclaiming licenses, managing Exchange Online mailboxes, and configuring MFA and conditional access to keep each environment secure.",
       "Because each client has different needs, this work also involves troubleshooting mail flow issues, resolving sync problems between on-prem Active Directory and Entra ID in hybrid environments, and documenting changes so the rest of the team has visibility into what was done and why.",
     ],
     technologies: [
