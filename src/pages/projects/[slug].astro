@@ -37,7 +37,27 @@ const { project } = Astro.props;
 
     <h2>Overview</h2>
 
-    {project.overview.map((paragraph) => <p>{paragraph}</p>)}
+    <p>{project.overview[0]}</p>
+
+    {
+      project.overview.length > 1 && (
+        <>
+          <div class="overview-extra" id="overview-extra" hidden>
+            {project.overview.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+
+          <button
+            type="button"
+            class="overview-toggle"
+            id="overview-toggle"
+            aria-expanded="false"
+            aria-controls="overview-extra"
+          >
+            Read more <span class="chevron">↓</span>
+          </button>
+        </>
+      )
+    }
 
     {
       project.architecture && (
@@ -129,6 +149,22 @@ const { project } = Astro.props;
     }
   </section>
 </Layout>
+
+<script>
+  const overviewToggle = document.getElementById("overview-toggle");
+  const overviewExtra = document.getElementById("overview-extra");
+
+  if (overviewToggle && overviewExtra) {
+    overviewToggle.addEventListener("click", () => {
+      const isHidden = overviewExtra.hidden;
+      overviewExtra.hidden = !isHidden;
+      overviewToggle.setAttribute("aria-expanded", String(isHidden));
+      overviewToggle.innerHTML = isHidden
+        ? 'Show less <span class="chevron up">↑</span>'
+        : 'Read more <span class="chevron">↓</span>';
+    });
+  }
+</script>
 
 {
   project.screenshots && project.screenshots.length > 0 && (
@@ -403,6 +439,40 @@ const { project } = Astro.props;
 
   .project ul {
     padding-left: 1.25rem;
+  }
+
+  .overview-extra p {
+    margin-top: 1.8rem;
+  }
+
+  .overview-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    margin-top: 1rem;
+    padding: 0.55rem 1rem;
+
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+
+    color: var(--accent-light);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .overview-toggle:hover {
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+
+  .chevron {
+    display: inline-block;
   }
 
   .architecture {

@@ -1,6 +1,6 @@
 export const profile = {
   name: "Justin Hoffmann",
-  title: "IT Support Technician",
+  title: "IT Technician",
   tagline: "Microsoft 365 · Infrastructure · Home Lab",
   email: "jhoffmann3987@yahoo.com",
   github: "https://github.com/jhoffmann3987",
@@ -10,7 +10,7 @@ export const profile = {
 
   /** Canonical bio paragraphs — used on the homepage About section and the standalone /about page */
   bio: [
-    "I'm an IT Support Technician working in a Managed Service Provider (MSP) environment, where I help business clients troubleshoot Windows systems, administer Microsoft 365 environments, manage user identities, and support endpoint security and networking. Every day brings a different challenge, which is one of the things I enjoy most about IT.",
+    "I'm an IT Technician working in a Managed Service Provider (MSP) environment, where I help business clients troubleshoot Windows systems, administer Microsoft 365 environments, manage user identities, and support endpoint security and networking. Every day brings a different challenge, which is one of the things I enjoy most about IT.",
     "Outside of work, I spend much of my time building and improving my home lab. It's where I experiment with virtualization, Linux, Docker, and networking before applying what I learn in real-world environments — building it myself is how I actually learn, better than any course.",
     "I care about well-documented infrastructure and automating repetitive tasks wherever I can. I'm working toward a Systems Administrator or Infrastructure Engineer role, with a focus on Microsoft 365, virtualization, networking, and cloud technologies.",
   ],
@@ -69,7 +69,7 @@ export const profile = {
   /** Terminal-style facts block (rendered like `cat ./facts`) */
   terminalFacts: [
     { key: "NAME", value: "Justin Hoffmann" },
-    { key: "ROLE", value: "IT Support Technician → Sysadmin" },
+    { key: "ROLE", value: "IT Technician → Sysadmin" },
     { key: "LOCATION", value: "Pensacola, Florida" },
     { key: "FOCUS", value: "M365 · Virtualization · Networking" },
     { key: "LAB", value: "Proxmox · OPNsense · Docker" },
