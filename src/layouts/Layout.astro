@@ -7,6 +7,7 @@ const {
 
 import "../styles/global.css";
 import TopNav from "../components/TopNav.astro";
+import ConstellationBg from "../components/ConstellationBg.astro";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL("/og-image.png", Astro.site);
@@ -45,6 +46,7 @@ const ogImageURL = new URL("/og-image.png", Astro.site);
   </head>
 
   <body>
+    <ConstellationBg />
     {showNav && <TopNav />}
     <slot />
   </body>
