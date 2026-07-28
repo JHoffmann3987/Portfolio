@@ -40,8 +40,8 @@
         canvas.height = height * dpr;
         ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-        // scale point count to area, capped for performance
-        const count = Math.min(Math.floor((width * height) / 18000), 70);
+        // scale point count to area, capped for performance — kept sparse so it reads as ambient, not busy
+        const count = Math.min(Math.floor((width * height) / 28000), 45);
         points = Array.from({ length: count }, () => ({
           x: Math.random() * width,
           y: Math.random() * height,
@@ -66,8 +66,8 @@
             const dx = points[i].x - points[j].x;
             const dy = points[i].y - points[j].y;
             const dist = Math.hypot(dx, dy);
-            if (dist < 140) {
-              const opacity = (1 - dist / 140) * 0.35;
+            if (dist < 130) {
+              const opacity = (1 - dist / 130) * 0.18;
               ctx!.strokeStyle = `rgba(${ACCENT}, ${opacity})`;
               ctx!.lineWidth = 1;
               ctx!.beginPath();
@@ -80,7 +80,7 @@
 
         // nodes
         for (const p of points) {
-          ctx!.fillStyle = `rgba(${ACCENT}, 0.8)`;
+          ctx!.fillStyle = `rgba(${ACCENT}, 0.45)`;
           ctx!.beginPath();
           ctx!.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
           ctx!.fill();
