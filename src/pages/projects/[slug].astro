@@ -12,7 +12,7 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.title} | Justin Hoffmann`}>
+<Layout title={`${project.title} | Justin Hoffmann`} showNav>
   <section class="project">
     <h1>{project.emoji} {project.title}</h1>
 

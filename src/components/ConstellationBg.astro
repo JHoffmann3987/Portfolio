@@ -1,0 +1,114 @@
+---
+// Subtle animated constellation background — sits behind the hero.
+// Canvas-based, respects prefers-reduced-motion, cleans up on page leave.
+---
+
+<canvas id="bg-constellation" aria-hidden="true"></canvas>
+
+<style>
+  #bg-constellation {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById("bg-constellation") as HTMLCanvasElement | null;
+
+  if (canvas) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const ctx = canvas.getContext("2d");
+
+    if (ctx && !prefersReduced) {
+      let width = 0;
+      let height = 0;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      const ACCENT = "63, 185, 80"; // --accent rgb
+      let points: { x: number; y: number; vx: number; vy: number }[] = [];
+
+      function size() {
+        const rect = canvas.getBoundingClientRect();
+        if (!rect.width) return;
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // scale point count to area, capped for performance
+        const count = Math.min(Math.floor((width * height) / 18000), 70);
+        points = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+        }));
+      }
+
+      function draw() {
+        ctx!.clearRect(0, 0, width, height);
+
+        for (const p of points) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+        }
+
+        // connecting lines
+        for (let i = 0; i < points.length; i++) {
+          for (let j = i + 1; j < points.length; j++) {
+            const dx = points[i].x - points[j].x;
+            const dy = points[i].y - points[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 140) {
+              const opacity = (1 - dist / 140) * 0.35;
+              ctx!.strokeStyle = `rgba(${ACCENT}, ${opacity})`;
+              ctx!.lineWidth = 1;
+              ctx!.beginPath();
+              ctx!.moveTo(points[i].x, points[i].y);
+              ctx!.lineTo(points[j].x, points[j].y);
+              ctx!.stroke();
+            }
+          }
+        }
+
+        // nodes
+        for (const p of points) {
+          ctx!.fillStyle = `rgba(${ACCENT}, 0.8)`;
+          ctx!.beginPath();
+          ctx!.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+          ctx!.fill();
+        }
+
+        raf = requestAnimationFrame(draw);
+      }
+
+      let raf = 0;
+      size();
+      draw();
+
+      let resizeTimer: number;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(size, 200);
+      });
+
+      // pause when tab not visible
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(raf);
+        } else {
+          raf = requestAnimationFrame(draw);
+        }
+      });
+    }
+  }
+</script>

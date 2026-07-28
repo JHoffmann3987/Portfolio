@@ -2,9 +2,11 @@
 const {
   title = "Justin Hoffmann | IT Support Technician",
   description = "IT Support Technician specializing in Microsoft 365 administration, Windows infrastructure, and networking — with a self-built Proxmox and OPNsense home lab I use to learn infrastructure beyond the day job.",
+  showNav = false,
 } = Astro.props;
 
 import "../styles/global.css";
+import TopNav from "../components/TopNav.astro";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL("/og-image.png", Astro.site);
@@ -43,6 +45,7 @@ const ogImageURL = new URL("/og-image.png", Astro.site);
   </head>
 
   <body>
+    {showNav && <TopNav />}
     <slot />
   </body>
 </html>
