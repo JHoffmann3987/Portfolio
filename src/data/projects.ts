@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "Proxmox Home Lab",
     emoji: "🖥️",
     description:
-      "The foundation everything else runs on — a Proxmox VE host running the VMs and LXC containers behind every other project on this site. Snapshots and scheduled backups so I can break things without consequences.",
+      "The host everything else runs on. Proxmox VE, running the VMs and containers behind every other project here — snapshotted and backed up so I can break things safely.",
     highlights: [
       "Virtual Machines & LXC Containers",
       "Shared SMB Storage",
@@ -59,8 +59,8 @@ export const projects: Project[] = [
       "Networking",
     ],
     overview: [
-      "I wanted to learn infrastructure on real hardware I could break and rebuild, not a cloud sandbox that resets when the free tier runs out. So I built my own: a Proxmox VE host that now runs everything from a Jellyfin container to an OPNsense firewall VM.",
-      "Because it's the base layer for every other project here, it's also where I learned the operations discipline that matters more than any single technology — snapshotting before risky changes, scheduled backups, and rebuilding a broken service from scratch instead of guessing at a fix.",
+      "I wanted real hardware I could break and rebuild, not a cloud sandbox that resets when the free tier runs out. So I built my own. The host now runs everything from a Jellyfin container to an OPNsense firewall VM.",
+      "It's the base layer for every other project here. That also makes it where I learned the operations discipline: snapshot before risky changes, schedule backups, rebuild broken services instead of guessing at fixes.",
     ],
     architecture: `Internet
   │
@@ -101,7 +101,7 @@ Proxmox Server (pve)
       "Managing virtual networking inside Proxmox.",
     ],
     learned:
-      "More than any specific technology, this taught me the habits that keep infrastructure recoverable — snapshot before you change something, back up before you trust it, and rebuild from a known-good state instead of troubleshooting blind. The kind of discipline that's invisible until the day it saves you.",
+      "The habits mattered more than the technology. Snapshot before you change something. Back up before you trust it. Rebuild from a known-good state instead of troubleshooting blind — discipline that's invisible until the day it saves you.",
     screenshots: ["/projects/proxmox-homelab/dashboard.png"],
   },
 
@@ -111,7 +111,7 @@ Proxmox Server (pve)
     title: "Docker Services",
     emoji: "🐳",
     description:
-      "Designed and deployed multiple Docker services for home security camera streaming, service discovery, and reverse proxy management, managed through Portainer while learning containerized application deployment.",
+      "Self-hosted services running in Docker: camera streaming, a dashboard, reverse proxy routing. All managed through Portainer and defined in Compose files I can rebuild from scratch.",
     highlights: [
       "Homepage Dashboard",
       "go2rtc (Camera Streaming)",
@@ -127,8 +127,8 @@ Proxmox Server (pve)
       "Portainer",
     ],
     overview: [
-      "Running services in Docker containers on top of the Proxmox home lab gave me a practical way to learn containerized deployment without risking a full VM rebuild every time something went wrong. Each service runs in its own container, defined and versioned through Docker Compose so the whole stack can be torn down and rebuilt from a single file.",
-      "I manage the stack through Portainer for a clear view of container state, published ports, and images at a glance. go2rtc handles low-latency streaming for my home security cameras, Nginx Proxy Manager takes care of reverse proxy routing, and Homepage acts as a central launcher for everything running in the lab.",
+      "Docker let me learn containerized deployment without rebuilding a VM every time something broke. Each service runs in its own container, defined in Compose so the whole stack can be torn down and rebuilt from a single file.",
+      "Portainer gives me container state, ports, and images at a glance. go2rtc streams my home security cameras, Nginx Proxy Manager handles reverse proxy routing, and Homepage ties it together as a launcher.",
     ],
     technologies: [
       "Docker",
@@ -152,7 +152,7 @@ Proxmox Server (pve)
       "Keeping container images updated without breaking working configs.",
     ],
     learned:
-      "This project taught me how containerized applications are structured, networked, and persisted, and gave me real practice with Docker Compose as a way to document and reproduce a deployment instead of configuring services by hand each time.",
+      "Containers finally clicked here: how they're networked, where data actually persists, and why Compose beats configuring by hand. I can tear the stack down and rebuild it from a single file.",
     screenshots: ["/projects/docker-services/portainer-containers.png"],
   },
 
@@ -162,7 +162,7 @@ Proxmox Server (pve)
     title: "Microsoft 365 Administration",
     emoji: "☁️",
     description:
-      "Provide daily administration and support for Microsoft 365 environments in a Managed Service Provider (MSP) setting, helping business clients manage identities, licensing, Exchange Online, and security.",
+      "My day job. Microsoft 365 administration across a rotating set of client tenants — identities, licensing, Exchange Online, and security.",
     highlights: [
       "Exchange Online",
       "Entra ID",
@@ -180,8 +180,8 @@ Proxmox Server (pve)
       "MFA",
     ],
     overview: [
-      "This is my day job. I administer Microsoft 365 across a rotating set of client tenants — the full identity and licensing lifecycle: provisioning and deprovisioning users, assigning and reclaiming licenses, managing Exchange Online mailboxes, and configuring MFA and conditional access to keep each environment secure.",
-      "Because each client has different needs, this work also involves troubleshooting mail flow issues, resolving sync problems between on-prem Active Directory and Entra ID in hybrid environments, and documenting changes so the rest of the team has visibility into what was done and why.",
+      "This is my day job. Microsoft 365 across a rotating set of client tenants: provisioning and deprovisioning users, managing licenses and mailboxes. MFA and conditional access on top of that.",
+      "Every client is configured differently, so most of the work is diagnosis. Mail flow issues, hybrid AD-to-Entra sync problems, and documenting what changed so the next tech isn't guessing.",
     ],
     technologies: [
       "Microsoft 365",
@@ -206,7 +206,7 @@ Proxmox Server (pve)
       "Balancing security requirements (MFA, conditional access) against client usability.",
     ],
     learned:
-      "This work has given me a solid, practical understanding of identity and licensing management at scale, and reinforced how much of good Microsoft 365 administration comes down to consistent process and documentation across many different environments.",
+      "Managing many tenants at once taught me that process beats memory. What scales is consistent documentation, not remembering how each client is configured.",
     screenshots: ["/projects/microsoft-365/architecture.svg"],
   },
 
@@ -216,7 +216,7 @@ Proxmox Server (pve)
     title: "Networking Lab — Phase 1: Segmentation",
     emoji: "🌐",
     description:
-      "Deployed OPNsense and VLAN-segmented my home network behind the existing household router — a real stateful firewall, 802.1Q trunking over a single NIC, and per-VLAN DHCP/DNS, rolled out with zero disruption to the Wi-Fi and media server the rest of the household relies on daily.",
+      "Segmented a flat home network behind an OPNsense firewall — three VLANs, 802.1Q trunking over a single NIC, per-VLAN DHCP and DNS. Nobody else in the house noticed it happen.",
     highlights: [
       "OPNsense Firewall (Proxmox VM)",
       "VLAN Segmentation (802.1Q)",
@@ -233,8 +233,8 @@ Proxmox Server (pve)
       "Netgear GS108Ev4",
     ],
     overview: [
-      "My home network ran flat for years — Proxmox, Docker, and Jellyfin all sharing the same broadcast domain as every phone, laptop, and TV in the house. Phase 1 introduces real segmentation: a dedicated firewall, VLAN-tagged networks, and rules that actually enforce which parts of the network can reach which.",
-      "Rather than replace the household router — which would mean reconfiguring every device in the house — I deployed OPNsense as a Proxmox VM behind it, so the existing TP-Link keeps handling NAT, DHCP, and Wi-Fi exactly as before. With only one NIC on the Proxmox host, every VLAN rides a single 802.1Q trunk to a Netgear managed switch, tagged at the Proxmox bridge level rather than inside any guest OS. The scheme is scoped to three VLANs — MGMT, SERVERS, and a reserved IOT — with SERVERS and IOT blocked from reaching MGMT.",
+      "My home network ran flat for years — Proxmox, Docker, and Jellyfin sharing one broadcast domain with every phone and TV in the house. Phase 1 fixes that: a real firewall, VLAN-tagged networks, and rules that enforce what can reach what.",
+      "Replacing the household router would have meant reconfiguring every device in the house. Instead I put OPNsense behind it as a Proxmox VM, leaving the TP-Link to handle NAT, DHCP, and Wi-Fi as before. With one NIC on the host, every VLAN rides a single 802.1Q trunk to a managed switch. Tagging happens at the Proxmox bridge, not inside any guest OS. Three VLANs: MGMT, SERVERS, and a reserved IOT — with SERVERS and IOT blocked from MGMT.",
     ],
     architecture: `Internet
   │
@@ -265,12 +265,12 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
       "Configured Unbound as a fully recursive DNS resolver and Kea for per-VLAN DHCP, including host reservations.",
     ],
     challenges: [
-      "Locked myself out of the switch's own management page after changing an access port's PVID to a VLAN with no route back — recovered with a factory reset, a reminder to change one variable at a time on management-plane settings.",
-      "DHCP silently failed on every VLAN after deploying OPNsense — traced through the Kea logs to a port conflict with Dnsmasq, still running from OPNsense's initial console setup and holding port 67 on every interface Kea needed.",
-      "A Kea DHCP reservation was accepted in the GUI but never honored — the client kept requesting INIT-REBOOT reconfirmation of its old lease, and Kea granted it without cross-checking the reservation, pointing to a subnet-ID association bug rather than a client issue. Fell back to a static IP rather than block the build on it.",
+      "Locked myself out of the switch's management page by changing an access port's PVID to a VLAN with no route back. Factory reset to recover — and a lesson about changing one variable at a time.",
+      "DHCP silently failed on every VLAN after deploying OPNsense. The Kea logs traced it to Dnsmasq, still running from the initial console setup and holding port 67 on every interface Kea needed.",
+      "A Kea DHCP reservation showed correctly in the GUI but was never honored. The client kept requesting INIT-REBOOT reconfirmation of its old lease, and Kea granted it without checking the reservation. A subnet-ID association bug, not a client issue. Fell back to a static IP rather than block the build.",
     ],
     learned:
-      "This reinforced that segmentation is as much change management as a technical exercise — the real constraint wasn't configuring VLANs, it was doing it without breaking Wi-Fi or Jellyfin for the household. The troubleshooting mattered just as much: a service that fails silently after exhausting retries can look identical to a working one in the logs, and watching Kea's DHCP log live was the only way to see what it was actually doing versus what the GUI claimed.",
+      "Segmentation was as much change management as configuration. Configuring VLANs was easy; doing it without breaking anyone's Wi-Fi was the real constraint. The troubleshooting taught me more. A service that gives up after exhausting retries looks identical to a healthy one in the logs. Only the live Kea log showed the difference.",
     nextSteps: [
       "Migrate Jellyfin behind the firewall with a scoped exception rule, or accept manual server addressing in clients.",
       "Populate the IOT VLAN with real devices.",
@@ -287,7 +287,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     title: "PowerShell Automation",
     emoji: "⚙️",
     description:
-      "A growing toolkit of PowerShell scripts for network discovery, system troubleshooting, and everyday IT administration, built to automate repetitive tasks and standardize how I diagnose issues across client environments.",
+      "18 PowerShell scripts for network discovery, system health checks, and security auditing. If I do something by hand twice, it becomes a script.",
     highlights: [
       "Async Network Scanner",
       "Multi-Threaded Runspaces",
@@ -298,8 +298,8 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     tags: ["PowerShell", "Automation", "Networking", "Windows"],
     techList: ["PowerShell", "Windows", "WMI/CIM", "Git", "GitHub"],
     overview: [
-      "I maintain a personal toolkit of PowerShell scripts built to automate the kinds of tasks that come up repeatedly in MSP work — network discovery, system health checks, and troubleshooting across storage, networking, and security. The scripts follow consistent conventions (standard param blocks, CSV export, colored console output, elapsed time reporting) so they're easy to reuse and extend.",
-      "The centerpiece is a network scanner that uses async pinging and multi-threaded runspaces to sweep a subnet quickly, with configurable port scanning, automatic subnet detection, ARP-based MAC address lookup, and manufacturer resolution via the macvendors.com API. Alongside it is a broader troubleshooting toolkit — roughly 20 scripts covering storage, system health, networking, user and security auditing, and reliability monitoring.",
+      "A toolkit for the tasks that come up over and over in MSP work: network discovery, system health checks, storage and security troubleshooting. Every script follows the same conventions — standard param blocks, CSV export, colored output — so they're easy to reuse.",
+      "The centerpiece is a network scanner using async pinging and multi-threaded runspaces to sweep a subnet fast. It does port scanning, subnet auto-detection, ARP-based MAC lookup, and vendor resolution via the macvendors.com API. Around it sits a broader set covering storage, system health, networking, and security auditing.",
     ],
     technologies: [
       "PowerShell",
@@ -322,7 +322,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
       "Keeping script output format consistent as the toolkit grew from a handful of scripts to around 20.",
     ],
     learned:
-      "Building this toolkit taught me a lot about PowerShell performance — especially runspaces versus simple loops for anything that touches the network — and reinforced how much time consistent script conventions save once a toolkit grows past a few one-off scripts.",
+      "Runspaces versus simple loops makes an enormous difference for anything touching the network. And once a toolkit passes a handful of scripts, consistent conventions save more time than any single optimization.",
     githubUrl: "https://github.com/JHoffmann3987/PowerShell-Toolkit",
     screenshots: [
       "/projects/powershell-automation/network-scan-output.png",

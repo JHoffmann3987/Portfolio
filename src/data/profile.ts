@@ -10,9 +10,9 @@ export const profile = {
 
   /** Canonical bio paragraphs — used on the homepage About section and the standalone /about page */
   bio: [
-    "I'm an IT Technician working in a Managed Service Provider (MSP) environment, where I help business clients troubleshoot Windows systems, administer Microsoft 365 environments, manage user identities, and support endpoint security and networking. Every day brings a different challenge, which is one of the things I enjoy most about IT.",
-    "Outside of work, I spend much of my time building and improving my home lab. It's where I experiment with virtualization, Linux, Docker, and networking before applying what I learn in real-world environments — building it myself is how I actually learn, better than any course.",
-    "I care about well-documented infrastructure and automating repetitive tasks wherever I can. I'm working toward a Systems Administrator or Infrastructure Engineer role, with a focus on Microsoft 365, virtualization, networking, and cloud technologies.",
+    "I'm an IT Technician at a Managed Service Provider, where I troubleshoot Windows systems, administer Microsoft 365, manage identities, and support endpoint security and networking for business clients. Every day is a different problem, which is the part I like most.",
+    "Outside of work I build and improve my home lab. It's where I test virtualization, Linux, Docker, and networking before it matters in a real environment. Building it myself is how I actually learn.",
+    "I care about well-documented infrastructure and automating what I can. I'm working toward a Systems Administrator or Infrastructure Engineer role focused on Microsoft 365, virtualization, and networking.",
   ],
 
   /** Two-column tech breakdown shown under the bio */
@@ -52,7 +52,7 @@ export const profile = {
   contactIntro:
     "I'm always interested in connecting with other IT professionals, collaborating on projects, and exploring new career opportunities.",
 
-  certifications: ["CompTIA A+", "3CX VoIP Certified Technician"],
+  certifications: ["CompTIA A+"],
 
   /** Verifiable credential links, keyed by cert name. Fill in your real Credly URL for A+. */
   certLinks: {
@@ -73,7 +73,7 @@ export const profile = {
     { key: "LOCATION", value: "Pensacola, Florida" },
     { key: "FOCUS", value: "M365 · Virtualization · Networking" },
     { key: "LAB", value: "Proxmox · OPNsense · Docker" },
-    { key: "CERTS", value: "CompTIA A+ · 3CX" },
+    { key: "CERTS", value: "CompTIA A+" },
     { key: "STATUS", value: "Open to opportunities" },
   ],
 };
