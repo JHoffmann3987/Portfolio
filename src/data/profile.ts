@@ -52,13 +52,6 @@ export const profile = {
   contactIntro:
     "I'm always interested in connecting with other IT professionals, collaborating on projects, and exploring new career opportunities.",
 
-  certifications: ["CompTIA A+"],
-
-  /** Verifiable credential links, keyed by cert name. Fill in your real Credly URL for A+. */
-  certLinks: {
-    // "CompTIA A+": "https://www.credly.com/badges/YOUR-BADGE-ID",
-  } as Record<string, string>,
-
   /** Concrete numbers for the hero stat strip */
   stats: [
     { value: "5", label: "Lab Projects" },
@@ -73,7 +66,6 @@ export const profile = {
     { key: "LOCATION", value: "Pensacola, Florida" },
     { key: "FOCUS", value: "M365 · Virtualization · Networking" },
     { key: "LAB", value: "Proxmox · OPNsense · Docker" },
-    { key: "CERTS", value: "CompTIA A+" },
     { key: "STATUS", value: "Open to opportunities" },
   ],
 };
