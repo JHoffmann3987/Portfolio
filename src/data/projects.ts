@@ -42,7 +42,6 @@ export const projects: Project[] = [
       "The host everything else runs on. Proxmox VE, running the VMs and containers behind every other project here — snapshotted and backed up so I can break things safely.",
     highlights: [
       "Virtual Machines & LXC Containers",
-      "Shared SMB Storage",
       "Docker Integration",
       "Snapshots & Backups",
       "Linux Administration",
@@ -73,7 +72,7 @@ Proxmox Server (pve)
   │           ├── Homepage
   │           ├── Portainer
   │           └── Observability stack
-  └── OPNsense VM — firewall`,
+  └── VM 102 — OPNsense (firewall)`,
     technologies: [
       "Proxmox VE",
       "Ubuntu Server",
@@ -82,7 +81,6 @@ Proxmox Server (pve)
       "Git & GitHub",
       "PowerShell",
       "TCP/IP Networking",
-      "SMB File Sharing",
     ],
     detailHighlights: [
       "Built and manage a Proxmox virtualization environment.",
