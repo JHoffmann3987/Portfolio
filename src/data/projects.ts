@@ -340,7 +340,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     detailHighlights: [
       "Built an async, multi-threaded network scanner with configurable port scanning and subnet auto-detection.",
       "Added ARP-based MAC lookup with manufacturer resolution via macvendors.com.",
-      "Wrote roughly 20 troubleshooting scripts spanning storage, system health, networking, and security auditing.",
+      "Wrote 18 troubleshooting scripts spanning storage, system health, networking, and security auditing.",
       "Standardized every script with consistent param blocks, CSV export, and colored console output.",
       "Added elapsed-time reporting so long-running scans are easy to track.",
       "Wrote a driver-inventory script using the Windows Update Agent COM API and PnP driver data to flag outdated drivers.",
@@ -348,7 +348,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     challenges: [
       "Getting runspace pools to scale cleanly without overwhelming the network or the host machine.",
       "Handling inconsistent WMI/CIM responses across different Windows versions.",
-      "Keeping script output format consistent as the toolkit grew from a handful of scripts to around 20.",
+      "Keeping script output format consistent as the toolkit grew from a handful of scripts to eighteen.",
     ],
     learned:
       "Runspaces versus simple loops makes an enormous difference for anything touching the network. And once a toolkit passes a handful of scripts, consistent conventions save more time than any single optimization.",
