@@ -159,7 +159,7 @@ docker-host (VM 100 \u2014 SERVERS VLAN, 10.0.20.10)
       "Configure hosts and deploy services with Ansible playbooks \u2014 no manual docker run commands.",
       "Scrape host and per-container metrics every 15 seconds with Prometheus, visualized in Grafana.",
       "Aggregate logs with Loki, shipped by Promtail reading the Docker socket directly.",
-      "Run independent up/down checks on six services with Uptime Kuma, with email alerting verified end to end.",
+      "Run independent up/down checks on seven services with Uptime Kuma \u2014 including the OPNsense GUI across a VLAN boundary \u2014 with email alerting verified end to end.",
     ],
     challenges: [
       "Writing a playbook to codify the existing setup revealed two containers had been deployed from a forgotten repo, and two others had no config backing them at all. Rather than reverse-engineer it, I backed the VM up, destroyed it, and rebuilt clean \u2014 redeploying only the services that were actually configured.",
@@ -175,6 +175,11 @@ docker-host (VM 100 \u2014 SERVERS VLAN, 10.0.20.10)
       "Build a golden VM image with Packer to remove the last manual step \u2014 clicking through the Ubuntu installer.",
       "Add Grafana alerting on resource thresholds, beyond Uptime Kuma's up/down checks.",
       "Phase 4: security hardening.",
+    ],
+    screenshots: [
+      "/projects/homelab-iac-observability/grafana-node-exporter.png",
+      "/projects/homelab-iac-observability/uptime-kuma.png",
+      "/projects/homelab-iac-observability/loki-logs.png",
     ],
   },
 
@@ -249,6 +254,7 @@ docker-host (VM 100 \u2014 SERVERS VLAN, 10.0.20.10)
     techList: [
       "OPNsense",
       "802.1Q VLANs",
+      "Tailscale",
       "Kea DHCP",
       "Unbound DNS",
       "Proxmox Networking",
@@ -286,6 +292,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
       "Migrated a test VM onto the new SERVERS VLAN as a zero-downtime proof of concept, with household Wi-Fi and Jellyfin left completely untouched.",
       "Configured Unbound as a fully recursive DNS resolver and Kea for per-VLAN DHCP, including host reservations.",
       "Moved Proxmox host management onto the MGMT VLAN, routing through OPNsense rather than the household router.",
+      "Set up Tailscale for remote access to the lab, with a firewall rule admitting the tailnet."
     ],
     challenges: [
       "Locked myself out of the switch's management page by changing an access port's PVID to a VLAN with no route back. Factory reset to recover — and a lesson about changing one variable at a time.",
@@ -297,10 +304,12 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     nextSteps: [
       "Migrate Jellyfin behind the firewall with a scoped exception rule, or accept manual server addressing in clients.",
       "Populate the IOT VLAN with real devices.",
-      "Stand up WireGuard on OPNsense for remote administration.",
       "Root-cause the Kea reservation / INIT-REBOOT matching bug instead of working around it.",
     ],
-    screenshots: ["/projects/networking-lab/phase1-topology.svg"],
+    screenshots: [
+      "/projects/networking-lab/opnsense-firewall-rules.png",
+      "/projects/networking-lab/phase1-topology.svg",
+    ],
   },
 
   {
