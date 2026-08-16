@@ -68,13 +68,12 @@ Router
   │
 Proxmox Server (pve)
   ├── LXC 101 — Jellyfin
-  ├── VM 100 — Ubuntu Server
+  ├── VM 100 — docker-host (Terraform-provisioned)
   │     └── Docker
-  │           ├── go2rtc
   │           ├── Homepage
-  │           ├── Nginx Proxy Manager
-  │           └── Portainer
-  └── Additional VMs / Containers`,
+  │           ├── Portainer
+  │           └── Observability stack
+  └── OPNsense VM — firewall`,
     technologies: [
       "Proxmox VE",
       "Ubuntu Server",
@@ -106,54 +105,77 @@ Proxmox Server (pve)
   },
 
   {
-    slug: "docker-services",
-    category: "Self Hosting",
-    title: "Docker Services",
-    emoji: "🐳",
+    slug: "homelab-iac-observability",
+    category: "Automation",
+    title: "Infrastructure as Code & Observability",
+    emoji: "\u{1F4E6}",
     description:
-      "Self-hosted services running in Docker: camera streaming, a dashboard, reverse proxy routing. All managed through Portainer and defined in Compose files I can rebuild from scratch.",
+      "Rebuilt my Docker host from scratch \u2014 provisioned by Terraform, configured by Ansible, monitored by Prometheus, Grafana, and Loki. No more clicking through a UI and hoping I remember what I did.",
     highlights: [
-      "Homepage Dashboard",
-      "go2rtc (Camera Streaming)",
-      "Nginx Proxy Manager",
-      "Portainer",
+      "Terraform VM Provisioning",
+      "Ansible Configuration",
+      "Prometheus + Grafana",
+      "Loki Log Aggregation",
+      "Uptime Kuma Alerting",
     ],
-    tags: ["Docker", "Docker Compose", "Linux", "Reverse Proxy"],
+    tags: ["Terraform", "Ansible", "Prometheus", "Grafana", "Docker"],
     techList: [
-      "Docker",
+      "Terraform",
+      "Ansible",
+      "Prometheus",
+      "Grafana",
+      "Loki",
       "Docker Compose",
-      "Ubuntu Server",
-      "Nginx Proxy Manager",
-      "Portainer",
     ],
     overview: [
-      "Docker let me learn containerized deployment without rebuilding a VM every time something broke. Each service runs in its own container, defined in Compose so the whole stack can be torn down and rebuilt from a single file.",
-      "Portainer gives me container state, ports, and images at a glance. go2rtc streams my home security cameras, Nginx Proxy Manager handles reverse proxy routing, and Homepage ties it together as a launcher.",
+      "My lab worked, but nothing about it was reproducible. VMs were created by clicking through Proxmox. Containers were started by hand. If a host died, rebuilding it meant remembering what I did months ago. This phase replaced that with code.",
+      "Terraform provisions VMs against the Proxmox API, authenticated with a scoped, revocable token instead of the root password. Ansible takes over once a VM exists \u2014 installing Docker from the official apt repo, then deploying services from version-controlled Compose files. On top of that sits an observability stack so I find out something broke from an alert, not from noticing.",
     ],
+    architecture: `Workstation (WSL)
+  \u251C\u2500\u2500 Terraform \u2500\u2500\u25BA Proxmox API \u2500\u2500\u25BA provisions VM
+  \u2514\u2500\u2500 Ansible \u2500\u2500\u25BA SSH \u2500\u2500\u25BA configures VM
+
+docker-host (VM 100 \u2014 SERVERS VLAN, 10.0.20.10)
+  \u251C\u2500\u2500 Homepage        \u2014 lab dashboard
+  \u251C\u2500\u2500 Portainer       \u2014 container management
+  \u2514\u2500\u2500 Observability
+        \u251C\u2500\u2500 Prometheus    \u25C4\u2500 node-exporter (host metrics)
+        \u2502                  \u25C4\u2500 cAdvisor (container metrics)
+        \u251C\u2500\u2500 Grafana       \u2014 dashboards
+        \u251C\u2500\u2500 Loki          \u25C4\u2500 Promtail (Docker socket)
+        \u2514\u2500\u2500 Uptime Kuma   \u2014 up/down checks + email alerts`,
     technologies: [
-      "Docker",
+      "Terraform (bpg/proxmox provider)",
+      "Ansible",
+      "Prometheus",
+      "Grafana",
+      "Loki + Promtail",
+      "Uptime Kuma",
+      "node-exporter + cAdvisor",
       "Docker Compose",
-      "Nginx Proxy Manager",
-      "Homepage",
-      "Portainer",
-      "go2rtc",
     ],
     detailHighlights: [
-      "Deployed a Homepage dashboard to monitor and launch all self-hosted services.",
-      "Run go2rtc for low-latency streaming of home security cameras.",
-      "Used Nginx Proxy Manager to route traffic to each service over clean subdomains.",
-      "Manage the full container stack through Portainer.",
-      "Defined every stack with Docker Compose for repeatable, version-controlled deployments.",
+      "Provision Proxmox VMs with Terraform, authenticated by a scoped API token rather than root credentials.",
+      "Configure hosts and deploy services with Ansible playbooks \u2014 no manual docker run commands.",
+      "Scrape host and per-container metrics every 15 seconds with Prometheus, visualized in Grafana.",
+      "Aggregate logs with Loki, shipped by Promtail reading the Docker socket directly.",
+      "Run independent up/down checks on six services with Uptime Kuma, with email alerting verified end to end.",
     ],
     challenges: [
-      "Understanding Docker's default bridge networking versus custom networks.",
-      "Managing persistent volumes so container updates didn't wipe data.",
-      "Getting reverse proxy and SSL configuration right in Nginx Proxy Manager.",
-      "Keeping container images updated without breaking working configs.",
+      "Writing a playbook to codify the existing setup revealed two containers had been deployed from a forgotten repo, and two others had no config backing them at all. Rather than reverse-engineer it, I backed the VM up, destroyed it, and rebuilt clean \u2014 redeploying only the services that were actually configured.",
+      "Notepad silently saved the Terraform .tfvars file in an encoding that broke parsing, with no useful error to point at it.",
+      "Proxmox API tokens need an explicit permission grant even when owned by root \u2014 and that grant disappears every time the token is rotated.",
+      "WSL mounts the Windows filesystem with permissions that make Ansible refuse to trust its own config file.",
+      "Docker's {{.Name}} template syntax collides with Ansible's templating engine, which tries to evaluate it first.",
+      "Monitoring the OPNsense GUI meant crossing the VLAN boundary I built in Phase 1. Instead of loosening the rule, I added one scoped exception: a single host, to a single destination, on a single port.",
     ],
     learned:
-      "Containers finally clicked here: how they're networked, where data actually persists, and why Compose beats configuring by hand. I can tear the stack down and rebuild it from a single file.",
-    screenshots: ["/projects/docker-services/portainer-containers.png"],
+      "Destroying a working VM felt wrong until I realized I could not confidently rebuild it \u2014 which meant it was already fragile. Infrastructure I cannot recreate from a file is infrastructure I do not really control. The observability work made the same point from the other direction: I had been finding problems by noticing them, which only works while you are looking.",
+    nextSteps: [
+      "Build a golden VM image with Packer to remove the last manual step \u2014 clicking through the Ubuntu installer.",
+      "Add Grafana alerting on resource thresholds, beyond Uptime Kuma's up/down checks.",
+      "Phase 4: security hardening.",
+    ],
   },
 
   {
@@ -263,6 +285,7 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
       "Wrote firewall rules enforcing that SERVERS and IOT cannot reach the MGMT network, while MGMT retains full administrative access.",
       "Migrated a test VM onto the new SERVERS VLAN as a zero-downtime proof of concept, with household Wi-Fi and Jellyfin left completely untouched.",
       "Configured Unbound as a fully recursive DNS resolver and Kea for per-VLAN DHCP, including host reservations.",
+      "Moved Proxmox host management onto the MGMT VLAN, routing through OPNsense rather than the household router.",
     ],
     challenges: [
       "Locked myself out of the switch's management page by changing an access port's PVID to a VLAN with no route back. Factory reset to recover — and a lesson about changing one variable at a time.",
@@ -274,7 +297,6 @@ TP-Link Router (NAT, DHCP, Wi-Fi)
     nextSteps: [
       "Migrate Jellyfin behind the firewall with a scoped exception rule, or accept manual server addressing in clients.",
       "Populate the IOT VLAN with real devices.",
-      "Move Proxmox host management itself onto the MGMT VLAN.",
       "Stand up WireGuard on OPNsense for remote administration.",
       "Root-cause the Kea reservation / INIT-REBOOT matching bug instead of working around it.",
     ],
