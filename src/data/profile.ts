@@ -6,7 +6,7 @@ export const profile = {
   github: "https://github.com/jhoffmann3987",
   githubLabel: "github.com/jhoffmann3987",
   location: "Pensacola, Florida",
-  resumeHref: "/Justin_Hoffmann_Resume_July2026.pdf",
+  resumeHref: "/Justin_Hoffmann_Resume_Aug2026.pdf",
 
   /** Canonical bio paragraphs — used on the homepage About section and the standalone /about page */
   bio: [
